@@ -1,0 +1,28 @@
+Learn Hub working-copy note
+===========================
+
+Primary working folder (this project):
+  update_v1.0.7/
+
+Always edit/run from this same folder unless you intentionally fork a new version.
+
+Run targets:
+  Browser app: index.html
+  Desktop app: npm start
+
+Build target:
+  npm run dist  -> exe-build/
+
+Tech+ custom guide lesson links expected by the app:
+  docs/guides/Study.html
+  docs/guides/techplus_study_guide.html
+
+If a lesson link breaks:
+  1) Confirm guide files exist in docs/guides/
+  2) Confirm paths inside assets/learn-hub-app.js
+  3) Hard refresh browser (Ctrl+F5)
+
+Before uploading source to GitHub:
+  - Keep source files/folders listed in docs/project/WHAT_TO_UPLOAD.txt
+  - Exclude node_modules/, exe-build/, dist/, binaries
+

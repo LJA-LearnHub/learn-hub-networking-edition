@@ -1,0 +1,1648 @@
+/* =============================================================================
+   Learn Hub — right column: lesson shell, strips, reference, Tech+ prose (load last).
+   ============================================================================= */
+
+body[data-lh-track="html"] #teach,
+body[data-lh-track="css"] #teach,
+body[data-lh-track="js"] #teach,
+body[data-lh-track="py"] #teach,
+body[data-lh-track="sql"] #teach,
+body[data-lh-track="security"] #teach,
+body[data-lh-track="labs"] #teach {
+  box-shadow:
+    inset 0 2px 0 0 rgba(55, 78, 118, 0.55),
+    inset 0 0 48px -12px rgba(8, 14, 28, 0.5);
+}
+
+/* ---------- Lesson shell (practice column body) ---------- */
+.lesson-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+/*
+ * Single scrollport for the whole step (Reference, Tech+ notes, study guide, practice strip).
+ * Nested overflow + grid on <details> was collapsing to zero height in several layouts, so
+ * nothing could scroll. #teach stays overflow:hidden; this element scrolls inside it.
+ */
+#teach.teach > .lesson-shell {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.lesson-shell-head {
+  flex-shrink: 0;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.55rem 1.05rem;
+  background: linear-gradient(95deg, var(--bg) 0%, var(--surface2) 55%, rgba(16, 36, 44, 0.62) 100%);
+  border-bottom: 1px solid var(--border-muted);
+  box-shadow: var(--glow-navy-soft), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.teach.teach-notes .lesson-shell-head {
+  background: linear-gradient(90deg, var(--bg) 0%, var(--surface) 100%);
+}
+
+.lesson-shell-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--accent);
+}
+
+.teach.teach-notes .lesson-shell-badge {
+  color: var(--notes-accent);
+}
+
+.lesson-shell-sub {
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.lesson-shell-body {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 1rem 1.25rem 1.5rem;
+}
+
+/* ---------- freeCodeCamp-style strip + Reference ---------- */
+.fcc-strip {
+  margin: 0 0 1rem;
+  padding: 1rem 1.15rem;
+  background: linear-gradient(148deg, var(--bg) 0%, var(--panel) 55%, rgba(12, 18, 30, 0.85) 100%);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--secondary-edge);
+  box-shadow: var(--shadow-sm), var(--glow-navy-soft), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.fcc-strip-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.fcc-kind-pill {
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.22rem 0.5rem;
+  border-radius: 6px;
+  background: linear-gradient(180deg, var(--secondary-mid) 0%, var(--secondary) 100%);
+  color: #b4c8ec;
+  border: 1px solid rgba(55, 85, 140, 0.5);
+  box-shadow: var(--glow-navy-soft);
+}
+
+.fcc-unit-pill {
+  font-size: 0.68rem;
+  color: var(--muted);
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fcc-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.12rem;
+  color: var(--text);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.fcc-hint {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #cad4e4;
+  line-height: 1.5;
+}
+
+.fcc-strip-chapter,
+.fcc-strip-studyguide {
+  border-left-color: var(--notes-accent) !important;
+  background: linear-gradient(135deg, rgba(58, 88, 138, 0.07), var(--notes-card));
+}
+
+.fcc-strip-chapter .fcc-kind-pill,
+.fcc-strip-studyguide .fcc-kind-pill {
+  background: rgba(58, 88, 138, 0.14);
+  color: var(--notes-accent);
+  border-color: rgba(58, 88, 138, 0.35);
+}
+
+.teach.teach-notes .fcc-strip:not(.fcc-strip-chapter):not(.fcc-strip-studyguide) {
+  border-left-color: var(--notes-accent);
+  background: linear-gradient(135deg, rgba(58, 88, 138, 0.06), var(--notes-card));
+}
+
+.teach.teach-notes .fcc-strip:not(.fcc-strip-chapter):not(.fcc-strip-studyguide) .fcc-kind-pill {
+  background: rgba(58, 88, 138, 0.12);
+  color: var(--notes-accent);
+  border-color: rgba(58, 88, 138, 0.32);
+}
+
+.teach.teach-notes .fcc-title {
+  font-family: var(--notes-font);
+  font-size: 1.2rem;
+  line-height: 1.3;
+}
+
+.teach.teach-notes .fcc-hint {
+  font-family: var(--notes-font);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--notes-text-soft);
+}
+
+.lh-full-chapter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.lh-chapter-search-wrap {
+  margin: 0 0 0.25rem;
+  padding: 0.65rem 0.85rem;
+  font-family: var(--notes-font);
+  background: rgba(52, 76, 120, 0.06);
+  border: 1px solid rgba(52, 76, 120, 0.28);
+  border-radius: 12px;
+}
+
+.lh-ch-search-label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--notes-accent);
+  margin-bottom: 0.45rem;
+}
+
+.lh-ch-search-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.lh-ch-search-input {
+  flex: 1 1 10rem;
+  min-width: 0;
+  font: inherit;
+  font-size: 0.88rem;
+  padding: 0.38rem 0.55rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface2);
+  color: var(--text);
+}
+
+.lh-ch-search-btn {
+  font-size: 0.72rem !important;
+  padding: 0.32rem 0.55rem !important;
+  flex-shrink: 0;
+}
+
+.lh-ch-search-status {
+  margin: 0.45rem 0 0;
+  font-size: 0.78rem;
+  color: var(--notes-text-soft);
+  min-height: 1.2em;
+}
+
+.lh-notes-chapter-tip {
+  margin: 0 0 0.5rem;
+  padding: 0.75rem 1rem;
+  font-family: var(--notes-font);
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.55;
+  color: var(--notes-muted);
+  background: rgba(58, 88, 138, 0.06);
+  border: 1px solid rgba(58, 88, 138, 0.22);
+  border-radius: 10px;
+  border-left: 3px solid var(--notes-accent);
+}
+
+.lh-notes-chapter-tip strong {
+  color: var(--notes-text-soft);
+}
+
+.lh-tech-reading {
+  min-height: 80px;
+}
+
+.lh-tech-reading.lh-notes-surface {
+  background: linear-gradient(145deg, var(--notes-card) 0%, rgba(22, 28, 36, 0.95) 100%);
+  border: 1px solid rgba(58, 88, 138, 0.22);
+  border-radius: 20px;
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  line-height: 1.7;
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(58, 88, 138, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.lh-tech-reading .lh-ref-body {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.lh-chapter-toc {
+  margin: 0 0 1.75rem;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(135deg, rgba(55, 72, 108, 0.12) 0%, rgba(55, 72, 108, 0.04) 100%);
+  border: 1px solid rgba(55, 72, 108, 0.35);
+  border-radius: 12px;
+  font-family: var(--notes-font);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.lh-chapter-toc strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--notes-purple);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.lh-chapter-toc ul {
+  margin: 0;
+  padding-left: 1.25rem;
+  columns: 1;
+  column-gap: 1.5rem;
+  list-style: disc;
+}
+
+@media (min-width: 720px) {
+  .lh-chapter-toc ul {
+    columns: 2;
+  }
+}
+
+@media (min-width: 1100px) {
+  .lh-chapter-toc ul {
+    columns: 3;
+  }
+}
+
+.lh-chapter-toc li {
+  margin: 0.2rem 0;
+  break-inside: avoid;
+}
+
+.lh-chapter-toc a {
+  color: var(--notes-accent);
+  text-decoration: none;
+}
+
+.lh-chapter-toc a:hover {
+  text-decoration: underline;
+  color: var(--notes-text-soft);
+}
+
+.lh-toc-h3 {
+  font-size: 0.76rem;
+  margin-left: 0.35rem;
+  opacity: 0.92;
+}
+
+.lh-reference-tech .lh-reference-inner-tech {
+  max-height: none;
+  box-sizing: border-box;
+}
+
+.lh-reference-tech .lh-reference-inner-tech.lh-notes-surface {
+  background: linear-gradient(145deg, var(--notes-card) 0%, rgba(22, 28, 36, 0.95) 100%);
+  border: none;
+  border-radius: 0 0 16px 16px;
+  padding: clamp(1.1rem, 3vw, 2.25rem);
+  line-height: 1.7;
+  box-shadow: none;
+}
+
+.lh-reference-tech .lh-ref-body {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.lh-reference-tech.lh-reference {
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.22);
+}
+
+.lh-reference-tech summary {
+  background: var(--notes-elevated);
+  color: var(--notes-text-soft);
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+}
+
+.lh-reference-tech[open] summary {
+  color: var(--notes-accent);
+}
+
+@media (max-width: 720px) {
+  .lh-chapter-toc ul {
+    columns: 1;
+  }
+}
+
+/* Desktop: sidebar height = viewport only (never stretches with main column) */
+@media (min-width: 721px) {
+  .sidebar {
+    align-self: flex-start;
+    height: 100vh;
+    height: 100dvh;
+    max-height: 100vh;
+    max-height: 100dvh;
+    box-shadow:
+      var(--shadow-inset-soft),
+      inset -1px 0 0 var(--border-muted),
+      var(--glow-navy),
+      10px 0 48px rgba(0, 0, 0, 0.7);
+  }
+
+  .main {
+    max-height: 100vh;
+    max-height: 100dvh;
+    align-self: stretch;
+  }
+}
+
+.lh-reference {
+  margin-top: 0.25rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--bg);
+  box-shadow: var(--glow-navy-soft);
+}
+
+.lh-reference summary {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.88rem;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(180deg, var(--secondary-mid) 0%, var(--secondary) 100%);
+  color: var(--text);
+  border-bottom: 1px solid transparent;
+}
+.lh-reference summary::-webkit-details-marker {
+  display: none;
+}
+
+.lh-reference[open] summary {
+  border-bottom-color: var(--border);
+  color: var(--blue);
+}
+
+.lh-reference.lh-reference-tech[open] summary {
+  color: var(--notes-accent);
+}
+
+.lh-reference summary:hover {
+  background: #141c2c;
+}
+
+.lh-reference-tech summary:hover {
+  background: rgba(58, 88, 138, 0.08);
+}
+
+.lh-ref-cue {
+  display: inline-block;
+  width: 1rem;
+  margin-right: 0.35rem;
+  color: var(--muted);
+  font-size: 0.62rem;
+  transition: transform 0.2s ease;
+  transform: translateY(-0.06em);
+}
+
+.lh-reference[open] .lh-ref-cue {
+  transform: translateY(-0.06em) rotate(90deg);
+  color: var(--blue);
+}
+
+.lh-reference-tech[open] .lh-ref-cue {
+  color: var(--notes-accent);
+}
+
+.lh-reference-inner {
+  padding: 0.85rem 1rem 1.1rem;
+  overflow-x: auto;
+  overflow-y: visible;
+  font-size: 0.9rem;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+}
+
+button.tool:disabled {
+  opacity: 0.42;
+  cursor: not-allowed;
+  filter: grayscale(0.2);
+}
+
+/* Non–Tech+ only: compact the right “This step” column (#teach), not the left sidebar */
+body.lh-compact-teach #teach.teach {
+  overflow-y: hidden;
+}
+
+body.lh-compact-teach #teach .lesson-shell-head {
+  padding: 0.32rem 0.55rem;
+}
+
+body.lh-compact-teach #teach .lesson-shell-badge {
+  font-size: 0.58rem;
+}
+
+body.lh-compact-teach #teach .lesson-shell-sub {
+  font-size: 0.62rem;
+}
+
+body.lh-compact-teach #teach .lesson-shell-body {
+  padding: 0.45rem 0.55rem 0.7rem;
+}
+
+body.lh-compact-teach #teach .fcc-strip {
+  margin: 0 0 0.55rem;
+  padding: 0.48rem 0.55rem;
+  border-radius: 8px;
+}
+
+body.lh-compact-teach #teach .fcc-kind-pill {
+  font-size: 0.58rem;
+  padding: 0.16rem 0.38rem;
+}
+
+body.lh-compact-teach #teach .fcc-unit-pill {
+  font-size: 0.6rem;
+}
+
+body.lh-compact-teach #teach .fcc-title {
+  margin: 0 0 0.32rem;
+  font-size: 0.88rem;
+}
+
+body.lh-compact-teach #teach .fcc-hint {
+  font-size: 0.74rem;
+  line-height: 1.42;
+}
+
+body.lh-compact-teach #teach .lh-reference summary {
+  padding: 0.4rem 0.55rem;
+  font-size: 0.74rem;
+}
+
+body.lh-compact-teach #teach .lh-reference-inner {
+  padding: 0.4rem 0.5rem 0.55rem;
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+/* ---------- Lesson / teach column prose ---------- */
+#teach.teach {
+  min-height: 0;
+  /* Stay under .practice-column so a grid min-width blowout cannot cover HTML/CSS/JS tabs */
+  position: relative;
+  z-index: 1;
+}
+
+#teach.teach:has(.lesson-shell) {
+  overflow: hidden;
+}
+
+.teach {
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-right: none;
+  position: relative;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 70% 45% at 100% 8%, rgba(42, 98, 112, 0.2), transparent 52%),
+    radial-gradient(ellipse 55% 40% at 0% 100%, rgba(18, 42, 52, 0.14), transparent 50%),
+    linear-gradient(168deg, var(--bg) 0%, var(--chrome) 52%, var(--bg) 100%);
+  box-shadow: inset 0 1px 0 rgba(92, 158, 178, 0.22), var(--glow-navy-inset);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.teach h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.15rem;
+}
+
+.teach h3 {
+  margin: 1.25rem 0 0.5rem;
+  font-size: 0.95rem;
+  color: #b4d6e6;
+}
+
+.teach p {
+  margin: 0 0 0.85rem;
+  color: #d2dae8;
+  font-size: 0.92rem;
+}
+
+.teach pre {
+  margin: 0 0 1rem;
+  padding: 0.85rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow-x: auto;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: #a8bdd8;
+}
+
+.teach code {
+  font-family: var(--mono);
+  font-size: 0.86em;
+  background: var(--surface2);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+
+.teach ul,
+.teach ol {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+  color: #d2dae8;
+  font-size: 0.92rem;
+}
+
+.callout {
+  border-left: 4px solid rgba(180, 150, 70, 0.85);
+  padding: 0.65rem 0.85rem;
+  background: rgba(35, 42, 58, 0.65);
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 1rem;
+  font-size: 0.88rem;
+}
+
+.teach hr.teach-hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 1.5rem 0 1rem;
+  opacity: 0.85;
+}
+
+/* Tech+ reading: layout matches CCNA_Notes.html chapter card + .chapter-content */
+.teach .tech-prose.lh-ref-body,
+.teach .lh-tg-root.lh-chapter-markdown {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.teach.teach-full-chapter .lesson-shell-body {
+  padding-left: clamp(0.5rem, 2vw, 1.25rem);
+  padding-right: clamp(0.5rem, 2vw, 1.25rem);
+}
+
+.teach.teach-notes .lh-notes-prose p,
+.teach.teach-notes .lh-notes-prose li,
+.teach.teach-notes .lh-notes-prose td {
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+.study-frame {
+  margin: 0 0 1.15rem;
+  padding: 0.9rem 1rem;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.study-frame h2 {
+  margin: 0 0 0.45rem;
+  font-size: 1.02rem;
+  color: var(--text);
+}
+
+.study-frame h3 {
+  margin: 0.75rem 0 0.35rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.study-frame .study-kind {
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--blue);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.study-frame .study-meta {
+  margin: 0.65rem 0 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+/* ---------- Tech+ reading — CCNA_Notes.html layout (grid bg + 17px Space Grotesk) ---------- */
+.teach.teach-notes {
+  position: relative;
+  background: var(--bg);
+}
+
+.teach.teach-notes::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(58, 88, 138, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(58, 88, 138, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.teach.teach-notes .lesson-shell {
+  position: relative;
+  z-index: 1;
+}
+
+.teach.teach-notes .lesson-shell-body {
+  font-family: var(--notes-font);
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+.lh-ref-body.lh-notes-prose > .lh-tg-source {
+  margin: 0 0 1rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+  font-family: var(--notes-font);
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.55;
+  color: var(--notes-muted);
+}
+
+.lh-ref-body.lh-notes-prose .lh-tg-chapter {
+  font-weight: 600;
+  color: var(--notes-text-soft);
+}
+
+.lh-notes-prose .lh-tg-root {
+  margin-top: 0.25rem;
+}
+
+.lh-notes-prose .lh-tg-root table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--notes-border);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+.lh-notes-prose .lh-tg-root th,
+.lh-notes-prose .lh-tg-root td {
+  padding: 0.85rem 1.15rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--notes-border);
+  border-right: 1px solid var(--notes-border);
+}
+
+.lh-notes-prose .lh-tg-root th:last-child,
+.lh-notes-prose .lh-tg-root td:last-child {
+  border-right: none;
+}
+
+.lh-notes-prose .lh-tg-root tr:last-child td {
+  border-bottom: none;
+}
+
+.lh-notes-prose .lh-tg-root tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.lh-notes-prose .lh-tg-root tbody tr:hover {
+  background: rgba(58, 88, 138, 0.06);
+}
+
+.lh-notes-prose .lh-tg-root th {
+  font-family: var(--notes-font);
+  background: linear-gradient(180deg, var(--notes-elevated) 0%, rgba(26, 33, 41, 0.9) 100%);
+  color: var(--notes-accent);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.lh-notes-prose .lh-tg-summary {
+  background: linear-gradient(135deg, rgba(55, 72, 108, 0.12) 0%, rgba(55, 72, 108, 0.04) 100%);
+  border: 1px solid rgba(55, 72, 108, 0.35);
+  border-radius: 12px;
+  padding: 1.5rem 1.75rem;
+  margin: 0 0 2rem;
+}
+
+.lh-notes-prose .lh-tg-summary h3 {
+  margin-top: 0;
+  margin-bottom: 0.65rem;
+  font-family: var(--notes-font);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--notes-purple);
+}
+
+.lh-notes-prose .lh-tg-summary h3::before {
+  content: "📋 ";
+  font-family: inherit;
+}
+
+.lh-notes-prose .lh-tg-summary p {
+  margin: 1rem 0;
+  color: var(--notes-text);
+}
+
+.lh-notes-prose .lh-tg-summary p:first-of-type {
+  margin-top: 0;
+}
+
+.lh-notes-prose .lh-tg-summary p:last-child {
+  margin-bottom: 0;
+}
+
+.lh-notes-prose .lh-tg-example {
+  background: linear-gradient(135deg, var(--notes-elevated) 0%, rgba(26, 33, 41, 0.8) 100%);
+  border: 1px solid var(--notes-border);
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 12px;
+  border-left: 4px solid var(--notes-orange);
+  font-size: inherit;
+  line-height: 1.7;
+  color: var(--notes-text);
+}
+
+.lh-notes-prose .lh-tg-example strong {
+  color: var(--notes-orange);
+}
+
+.lh-notes-prose .lh-tg-note {
+  background: linear-gradient(135deg, rgba(58, 88, 138, 0.1) 0%, rgba(58, 88, 138, 0.04) 100%);
+  border: 1px solid rgba(58, 88, 138, 0.3);
+  border-left: 4px solid var(--notes-accent);
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 12px 12px 0;
+  font-size: inherit;
+  line-height: 1.7;
+  color: var(--notes-text);
+}
+
+.lh-notes-prose .lh-tg-note strong {
+  color: var(--notes-accent);
+}
+
+.lh-notes-prose .lh-tg-key {
+  background: linear-gradient(135deg, rgba(61, 214, 140, 0.1) 0%, rgba(61, 214, 140, 0.04) 100%);
+  border: 1px solid rgba(61, 214, 140, 0.3);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+  border-left: 4px solid var(--notes-green);
+  font-size: inherit;
+  line-height: 1.7;
+  color: var(--notes-text);
+}
+
+.lh-notes-prose .lh-tg-key strong {
+  color: var(--notes-green);
+}
+
+.lh-notes-prose .lh-tg-markdown,
+.lh-notes-prose .lh-chapter-markdown {
+  font-family: var(--notes-font);
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--notes-text);
+  padding-bottom: 1.5rem;
+}
+
+.lh-notes-prose .lh-chapter-markdown h1 {
+  font-family: var(--notes-font);
+  font-size: 1.65rem;
+  font-weight: 600;
+  color: var(--notes-text);
+  margin: 0 0 1.25rem;
+  padding: 0.75rem 0;
+  padding-left: 1rem;
+  border-left: 4px solid var(--notes-accent);
+  border-radius: 0 8px 8px 0;
+  background: linear-gradient(90deg, rgba(58, 88, 138, 0.08) 0%, transparent 100%);
+  letter-spacing: -0.02em;
+  scroll-margin-top: 0.75rem;
+}
+
+.lh-notes-prose .lh-chapter-markdown h2 {
+  font-family: var(--notes-font);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--notes-text);
+  margin: 2.5rem 0 1rem;
+  padding: 0.75rem 0;
+  padding-left: 1rem;
+  border-left: 4px solid var(--notes-accent);
+  border-radius: 0 8px 8px 0;
+  background: linear-gradient(90deg, rgba(58, 88, 138, 0.08) 0%, transparent 100%);
+  letter-spacing: -0.02em;
+  scroll-margin-top: 0.75rem;
+}
+
+.lh-notes-prose .lh-chapter-markdown h2:first-child {
+  margin-top: 0;
+}
+
+.lh-notes-prose .lh-chapter-markdown h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--notes-font);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--notes-text-soft);
+  margin: 2rem 0 0.75rem;
+  scroll-margin-top: 0.75rem;
+}
+
+.lh-notes-prose .lh-chapter-markdown h3::before {
+  content: "/";
+  font-family: var(--notes-mono);
+  font-size: 0.85em;
+  font-weight: 600;
+  color: var(--notes-accent);
+}
+
+.lh-notes-prose .lh-tg-summary h3::before {
+  content: "📋 ";
+  font-family: inherit;
+}
+
+.lh-notes-prose .lh-chapter-markdown h4 {
+  font-family: var(--notes-font);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--notes-text-soft);
+  margin: 1.35rem 0 0.5rem;
+}
+
+.lh-notes-prose .lh-chapter-markdown strong {
+  color: var(--notes-text);
+  font-weight: 600;
+}
+
+.lh-notes-prose .lh-md-meta {
+  margin: 0 0 1.25rem !important;
+  padding: 0.65rem 0.9rem !important;
+  font-family: var(--notes-font) !important;
+  font-size: 0.875rem !important;
+  line-height: 1.55 !important;
+  color: var(--notes-text-soft) !important;
+  background: var(--notes-elevated);
+  border-radius: 8px;
+  border-left: 3px solid rgba(148, 163, 184, 0.45);
+}
+
+.lh-notes-prose .lh-md-start,
+.lh-notes-prose .lh-chapter-markdown > hr,
+.lh-notes-prose hr.teach-hr.lh-md-start {
+  border: none;
+  border-top: 1px solid var(--notes-border);
+  margin: 1.75rem 0;
+  height: 0;
+  background: none;
+  opacity: 1;
+}
+
+.lh-notes-prose .lh-md-objectives-banner {
+  margin: 0 0 1.25rem;
+  padding: 0.75rem 0.95rem;
+  background: rgba(58, 88, 138, 0.08);
+  border: 1px solid rgba(58, 88, 138, 0.22);
+  border-radius: 10px;
+}
+
+.lh-notes-prose .lh-md-objectives-banner p {
+  margin: 0 0 0.4rem !important;
+  font-family: var(--notes-font) !important;
+  font-size: 0.82rem !important;
+  line-height: 1.5 !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--notes-accent);
+}
+
+.lh-notes-prose .lh-md-objectives-banner p:last-child {
+  margin-bottom: 0 !important;
+}
+
+/** Exam objectives list (first <ul> after objectives banner): top-level = objectives, nested = sub-points */
+.lh-notes-prose ul.lh-exam-objectives {
+  margin: 0.65rem 0 1.1rem;
+  padding-left: 1.35rem;
+  list-style: disc;
+}
+
+.lh-notes-prose ul.lh-exam-objectives > li {
+  margin: 0.55rem 0;
+  line-height: 1.45;
+}
+
+.lh-notes-prose ul.lh-exam-objectives > li > p:first-child {
+  margin: 0 0 0.2rem !important;
+}
+
+.lh-notes-prose ul.lh-exam-objectives ul,
+.lh-notes-prose ul.lh-exam-objectives-sub {
+  margin: 0.4rem 0 0.35rem;
+  padding-left: 1.35rem;
+  list-style: circle;
+}
+
+.lh-notes-prose ul.lh-exam-objectives ul > li,
+.lh-notes-prose ul.lh-exam-objectives-sub > li {
+  margin: 0.22rem 0;
+  font-size: 0.94em;
+  line-height: 1.42;
+  color: var(--notes-text-soft);
+  font-weight: 400;
+}
+
+.lh-notes-prose ul.lh-exam-objectives ul > li::marker,
+.lh-notes-prose ul.lh-exam-objectives-sub > li::marker {
+  color: rgba(58, 88, 138, 0.75);
+}
+
+.lh-notes-prose .lh-chapter-markdown > p,
+.lh-notes-prose .lh-chapter-markdown li > p {
+  margin: 1rem 0;
+  text-wrap: pretty;
+  color: var(--notes-text);
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+.lh-notes-prose .lh-chapter-markdown ul,
+.lh-notes-prose .lh-chapter-markdown ol {
+  margin: 1rem 0;
+  padding-left: 1.75rem;
+}
+
+.lh-notes-prose .lh-chapter-markdown ul ul,
+.lh-notes-prose .lh-chapter-markdown ol ul {
+  margin: 0.4rem 0;
+  padding-left: 1.5rem;
+}
+
+.lh-notes-prose .lh-chapter-markdown ul > li,
+.lh-notes-prose .lh-chapter-markdown ol > li {
+  margin: 0.5rem 0;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+.lh-notes-prose .lh-chapter-markdown li::marker {
+  color: var(--notes-accent);
+}
+
+.lh-notes-prose .lh-chapter-markdown pre {
+  margin: 1.25rem 0;
+  padding: 1rem 1.1rem;
+  background: var(--bg);
+  border: 1px solid var(--notes-border);
+  border-radius: 10px;
+  overflow-x: auto;
+  font-family: var(--notes-mono);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #a8bdd8;
+}
+
+.lh-notes-prose .lh-chapter-markdown code {
+  font-family: var(--notes-mono);
+  font-size: 0.9em;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  background: rgba(58, 88, 138, 0.12);
+  color: var(--notes-accent);
+  padding: 0.3em 0.6em;
+  border-radius: 6px;
+  border: 1px solid rgba(58, 88, 138, 0.2);
+}
+
+.lh-notes-prose .lh-chapter-markdown pre code {
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: inherit;
+  font-size: inherit;
+}
+
+.lh-notes-prose .lh-chapter-markdown blockquote {
+  margin: 1.25rem 0;
+  padding: 1rem 1.15rem;
+  border-left: 4px solid var(--notes-orange);
+  background: rgba(255, 159, 67, 0.06);
+  border-radius: 0 12px 12px 0;
+  color: var(--notes-text);
+}
+
+.lh-notes-prose .lh-chapter-markdown table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--notes-border);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+.lh-notes-prose .lh-chapter-markdown th,
+.lh-notes-prose .lh-chapter-markdown td {
+  padding: 0.85rem 1.15rem;
+  border-bottom: 1px solid var(--notes-border);
+  border-right: 1px solid var(--notes-border);
+  vertical-align: top;
+}
+
+.lh-notes-prose .lh-chapter-markdown th:last-child,
+.lh-notes-prose .lh-chapter-markdown td:last-child {
+  border-right: none;
+}
+
+.lh-notes-prose .lh-chapter-markdown tr:last-child td {
+  border-bottom: none;
+}
+
+.lh-notes-prose .lh-chapter-markdown tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.lh-notes-prose .lh-chapter-markdown tbody tr:hover {
+  background: rgba(58, 88, 138, 0.06);
+}
+
+.lh-notes-prose .lh-chapter-markdown th {
+  font-family: var(--notes-font);
+  background: linear-gradient(180deg, var(--notes-elevated) 0%, rgba(26, 33, 41, 0.9) 100%);
+  color: var(--notes-accent);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.lh-notes-prose .lh-tg-recap {
+  background: linear-gradient(135deg, rgba(55, 72, 108, 0.12) 0%, rgba(55, 72, 108, 0.04) 100%);
+  border: 1px solid rgba(55, 72, 108, 0.35);
+  border-radius: 16px;
+  padding: 1.75rem 2rem;
+  margin: 2.5rem 0 0;
+  box-shadow: 0 0 40px rgba(55, 72, 108, 0.08);
+  font-size: inherit;
+  line-height: 1.7;
+  color: var(--notes-text);
+}
+
+.lh-notes-prose .lh-tg-recap h2 {
+  margin-top: 0;
+  padding-left: 0;
+  border: none;
+  background: none;
+  color: var(--notes-purple);
+  font-size: 1.2rem;
+}
+
+.lh-notes-prose .lh-tg-recap h2::before {
+  content: "✦ ";
+}
+
+.lh-notes-prose .lh-tg-recap-head {
+  color: var(--notes-purple);
+  border-bottom-color: rgba(55, 72, 108, 0.35);
+}
+
+.lh-notes-prose .lh-tg-recap h4 {
+  color: var(--notes-text);
+}
+
+.lh-notes-prose .lh-tg-recap .src {
+  font-size: 0.85rem;
+  color: var(--notes-muted);
+}
+
+.lh-md-fallback {
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  max-height: 70vh;
+  overflow: auto;
+  padding: 0.75rem;
+  background: var(--surface2);
+  border-radius: 10px;
+}
+
+/* Security+ auto-enriched study packs (learn-hub-security-md.js) */
+.lh-sec-study-pack {
+  margin-top: 1.35rem;
+  padding-top: 0.35rem;
+  border-top: 1px solid var(--border, rgba(255, 255, 255, 0.08));
+}
+.lh-sec-study-pack .lh-sec-lede {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--notes-muted, #9aa7b8);
+}
+.lh-sec-study-pack h2 {
+  margin-top: 0.25rem;
+}
+.lh-sec-study-pack h3 {
+  margin-top: 1.1rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+.lh-sec-dl dt {
+  margin-top: 0.55rem;
+  font-size: 0.88rem;
+}
+.lh-sec-dl dd {
+  margin: 0.15rem 0 0 0;
+  padding-left: 0.35rem;
+  border-left: 2px solid var(--accent, #5b8cff);
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--notes-muted, #9aa7b8);
+}
+.lh-sec-table-wrap {
+  overflow-x: auto;
+  margin: 0.5rem 0 0.25rem;
+}
+.lh-sec-recall {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+.lh-sec-recall th,
+.lh-sec-recall td {
+  border: 1px solid var(--border, rgba(255, 255, 255, 0.1));
+  padding: 0.4rem 0.55rem;
+  vertical-align: top;
+}
+.lh-sec-recall thead th {
+  background: var(--surface2, rgba(0, 0, 0, 0.2));
+  text-align: left;
+}
+
+/* ---------- Narrow screens: readable “This step” + notes (lesson text unchanged) ---------- */
+@media (max-width: 720px) {
+  .lesson-shell-head {
+    flex-wrap: wrap;
+    padding: 0.5rem 0.75rem;
+    gap: 0.45rem;
+  }
+
+  .lesson-shell-body {
+    padding: 0.85rem 0.75rem 1.15rem;
+  }
+
+  .teach h2 {
+    font-size: 1.12rem;
+  }
+
+  .teach h3 {
+    font-size: 0.98rem;
+  }
+
+  .teach p,
+  .teach ul,
+  .teach ol {
+    font-size: 0.9375rem;
+    line-height: 1.62;
+  }
+
+  .teach pre {
+    font-size: 0.8rem;
+    line-height: 1.48;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .fcc-strip {
+    padding: 0.85rem 0.8rem;
+  }
+
+  .fcc-title {
+    font-size: 1.05rem;
+  }
+
+  .fcc-hint {
+    font-size: 0.9rem;
+    line-height: 1.58;
+  }
+
+  .teach.teach-notes .lesson-shell-body {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .teach.teach-notes .fcc-title {
+    font-size: 1.08rem;
+  }
+
+  .teach.teach-notes .fcc-hint {
+    font-size: 0.9375rem;
+  }
+
+  /* Code-first tracks: keep editor room but avoid microscopic reading */
+  body.lh-compact-teach #teach .lesson-shell-body {
+    padding: 0.7rem 0.72rem 0.95rem;
+  }
+
+  body.lh-compact-teach #teach .fcc-title {
+    font-size: 0.98rem;
+  }
+
+  body.lh-compact-teach #teach .fcc-hint {
+    font-size: 0.875rem;
+    line-height: 1.52;
+  }
+
+  body.lh-compact-teach #teach .lh-reference-inner {
+    font-size: 0.84rem;
+  }
+
+  #teach-boot-placeholder {
+    padding: 1rem 0.85rem 1.15rem;
+    max-width: none;
+  }
+
+  #teach-boot-placeholder h2 {
+    font-size: 1.15rem;
+  }
+
+  #teach-boot-placeholder p {
+    font-size: 0.9rem;
+  }
+
+  .lh-notes-prose .lh-tg-root {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .lh-study-flow-tip {
+    font-size: 0.78rem;
+    line-height: 1.5;
+    padding: 0.55rem 0.65rem;
+    margin-bottom: 0.65rem;
+    word-break: break-word;
+  }
+
+  .teach.teach-full-chapter .lh-full-chapter-body.lh-tech-reading {
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .lh-tech-reading.lh-notes-surface {
+    padding: clamp(0.85rem, 3vw, 1.5rem);
+    border-radius: 14px;
+  }
+
+  .lh-chapter-search-wrap {
+    padding: 0.55rem 0.65rem;
+  }
+
+  .lh-ch-search-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.35rem;
+    align-items: stretch;
+  }
+
+  .lh-ch-search-input {
+    grid-column: 1 / -1;
+    width: 100%;
+    min-height: 2.5rem;
+    font-size: 1rem;
+  }
+
+  .lh-ch-search-btn {
+    min-height: 2.5rem;
+    width: 100%;
+  }
+
+  .lh-pattern-block {
+    margin: 1rem 0;
+    padding: 0.6rem 0.65rem;
+    font-size: 0.84rem;
+    line-height: 1.55;
+    word-break: break-word;
+  }
+
+  .lh-pattern-title {
+    font-size: 0.75rem;
+  }
+
+  .lh-pseudo-pre {
+    font-size: 0.68rem;
+    padding: 0.45rem 0.5rem;
+    line-height: 1.42;
+  }
+
+  .lh-tech-quiz-toolbar {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.28rem;
+    padding: 0.36rem 0.45rem;
+    align-items: center;
+  }
+
+  .lh-tech-quiz-toolbar-label {
+    grid-column: 1 / -1;
+    margin-right: 0;
+    margin-bottom: 0.05rem;
+  }
+
+  .lh-tech-quiz-toolbar .lh-tech-set-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 1.9rem;
+    width: 100%;
+    font-size: 0.68rem;
+    padding: 0.14rem 0.22rem;
+  }
+
+  .lh-tech-quiz-hint {
+    font-size: 0.75rem !important;
+  }
+}
+
+/* ----- Study flow, Tech+ reading patterns, quick practice toolbar ----- */
+
+.lh-study-flow-tip {
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--notes-text, #e8edf5);
+  background: rgba(55, 85, 140, 0.12);
+  border: 1px solid rgba(55, 85, 140, 0.35);
+  border-radius: 12px;
+  padding: 0.65rem 0.85rem;
+  margin-bottom: 0.75rem;
+}
+
+.lh-pattern-block {
+  margin: 1.25rem 0;
+  padding: 0.75rem 0.9rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(8, 12, 18, 0.45);
+  font-size: 0.88rem;
+  line-height: 1.58;
+}
+
+.lh-pattern-block--pseudocode {
+  border-color: rgba(91, 140, 255, 0.35);
+}
+
+.lh-pattern-block--tiers {
+  border-color: rgba(255, 212, 59, 0.22);
+}
+
+.lh-pattern-block--real {
+  border-color: rgba(74, 222, 128, 0.25);
+}
+
+.lh-pattern-block--meta {
+  border-color: rgba(167, 139, 250, 0.35);
+}
+
+.lh-pattern-title {
+  margin: 0 0 0.45rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--notes-muted, #9fb0c8);
+}
+
+.lh-pseudo-pre {
+  margin: 0.5rem 0 0;
+  padding: 0.55rem 0.65rem;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  font-family: var(--mono, "JetBrains Mono", monospace);
+  font-size: 0.76rem;
+  line-height: 1.45;
+  overflow-x: auto;
+}
+
+.lh-tier-list {
+  margin: 0.35rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.lh-tech-quiz-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 0.45rem 0.5rem;
+  border-radius: 10px;
+  background: rgba(8, 12, 18, 0.55);
+  border: 1px solid var(--border-strong, rgba(55, 85, 140, 0.35));
+}
+
+.lh-tech-quiz-toolbar-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted, #9fb0c8);
+  margin-right: 0.15rem;
+}
+
+.lh-tech-quiz-toolbar .lh-tech-set-btn {
+  font-size: 0.72rem;
+  padding: 0.22rem 0.45rem;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lh-tech-set-btn--active {
+  border-color: rgba(91, 140, 255, 0.75) !important;
+  color: #fff !important;
+  box-shadow: 0 0 0 1px rgba(91, 140, 255, 0.35);
+}
+
+.lh-tech-quiz-hint {
+  font-size: 0.78rem !important;
+  margin: 0 0 0.65rem !important;
+  line-height: 1.45 !important;
+}
+
+.nav-scroll .unit-title {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Tech+ flashcard deck (Questions mode) */
+.lh-tech-flash-root {
+  max-width: 36rem;
+  margin: 0 auto;
+}
+.lh-tech-flash-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 0.75rem;
+  margin-bottom: 0.35rem;
+}
+.lh-tech-flash-phase {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted, #9fb0c8);
+}
+.lh-tech-flash-progress {
+  margin: 0 0 0.75rem;
+  font-size: 0.8rem;
+  color: var(--muted, #9fb0c8);
+}
+.lh-tech-flash-cardbox {
+  perspective: 900px;
+  margin-bottom: 0.5rem;
+}
+.lh-tech-flash-card {
+  display: block;
+  width: 100%;
+  min-height: 9rem;
+  padding: 1rem 1.1rem;
+  text-align: left;
+  border-radius: 12px;
+  border: 1px solid rgba(120, 160, 220, 0.35);
+  background: linear-gradient(145deg, rgba(18, 28, 48, 0.95), rgba(10, 16, 28, 0.98));
+  color: var(--fg, #e8eef8);
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.18s ease;
+  font: inherit;
+}
+.lh-tech-flash-card:hover {
+  border-color: rgba(120, 180, 255, 0.55);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+.lh-tech-flash-card:focus-visible {
+  outline: 2px solid rgba(91, 140, 255, 0.85);
+  outline-offset: 2px;
+}
+.lh-tech-flash-card--open {
+  border-color: rgba(91, 140, 255, 0.65);
+}
+/* Only one face visible: term OR definition (avoids both showing if [hidden] is unreliable). */
+.lh-tech-flash-card:not(.lh-tech-flash-card--open) .lh-tech-flash-back {
+  display: none !important;
+}
+.lh-tech-flash-card.lh-tech-flash-card--open .lh-tech-flash-front {
+  display: none !important;
+}
+.lh-tech-flash-side {
+  display: block;
+  font-size: 1.05rem;
+  line-height: 1.45;
+  word-break: break-word;
+}
+.lh-tech-flash-front {
+  font-weight: 600;
+  font-size: 1.15rem;
+}
+.lh-tech-flash-back {
+  margin-top: 0;
+  color: var(--muted, #b8c8e0);
+  font-weight: 400;
+}
+.lh-tech-flash-flip-hint {
+  font-size: 0.78rem;
+  color: var(--muted, #9fb0c8);
+  margin: 0.5rem 0 0;
+}
+.lh-tech-flash-flip-hint kbd {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.72rem;
+}
+.lh-tech-flash-knew {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.65rem;
+  margin-bottom: 0.75rem;
+}
+.lh-tech-flash-knew-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-right: 0.25rem;
+}
+.lh-tech-flash-summary {
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}

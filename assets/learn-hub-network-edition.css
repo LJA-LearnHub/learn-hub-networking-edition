@@ -1,0 +1,211 @@
+/* Learn Hub — Network Edition overrides */
+
+body.lh-network-edition {
+  --primary: #04120f;
+  --primary-soft: #0a1f1a;
+  --primary-card: #0f2e26;
+  --secondary: #123228;
+  --secondary-mid: #1a4a3d;
+  --secondary-bright: #1f7a62;
+  --secondary-edge: #2ecf9a;
+  --border: #2a6b58;
+  --accent: #2ecf9a;
+  --accent-dim: #1a8f6a;
+  --blue: #6ee7c4;
+  --tech: #5eead4;
+  --notes-accent: #2ecf9a;
+  --glow-navy: 0 0 22px rgba(46, 207, 154, 0.22);
+  --glow-ring: 0 0 36px rgba(30, 120, 90, 0.18);
+}
+
+body.lh-network-edition::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 70% 45% at 50% -15%, rgba(46, 207, 154, 0.12), transparent),
+    radial-gradient(ellipse 35% 25% at 100% 0%, rgba(30, 140, 110, 0.08), transparent);
+}
+
+body.lh-network-edition .lh-auth-brand-mark {
+  background: linear-gradient(135deg, #1a8f6a, #2ecf9a);
+  color: #04120f;
+}
+
+body.lh-network-edition .lh-brand-title::after {
+  content: " · Network";
+  font-weight: 500;
+  color: var(--accent);
+  font-size: 0.72em;
+}
+
+body.lh-network-edition #lh-track-mode-root,
+body.lh-network-edition #lh-techplus-org-toggle {
+  display: none !important;
+}
+
+body.lh-network-edition #ws-web,
+body.lh-network-edition #ws-py,
+body.lh-network-edition #ws-sql {
+  display: none !important;
+}
+
+body.lh-network-edition.lh-course-networkplus #practice-column {
+  min-height: 0;
+}
+
+body.lh-network-edition .lh-network-expansion {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+body.lh-network-edition .xp-fill {
+  background: linear-gradient(90deg, var(--accent-dim), var(--accent));
+}
+
+/* Notes: always visible (no collapsible header) */
+body.lh-network-edition .lesson-shell-body .lh-notes-flat {
+  display: block;
+  max-height: none;
+  margin: 0;
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+}
+
+body.lh-network-edition .lesson-shell-body .lh-notes-flat.lh-notes-surface {
+  border-radius: 12px;
+  padding: clamp(1.1rem, 3vw, 2.25rem);
+}
+
+body.lh-network-edition.teach-notes .lesson-shell-body {
+  padding-top: 0.25rem;
+}
+
+/* Top bar: Split / Practice / Notes */
+.lh-net-view-switch {
+  display: inline-flex;
+  align-items: stretch;
+  flex-shrink: 0;
+  padding: 3px;
+  gap: 2px;
+  border-radius: 10px;
+  border: 1px solid var(--border-subtle);
+  background: rgba(0, 0, 0, 0.35);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.lh-net-view-switch[hidden] {
+  display: none !important;
+}
+
+.lh-net-view-btn {
+  appearance: none;
+  border: none;
+  margin: 0;
+  padding: 6px 14px;
+  border-radius: 7px;
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  background: transparent;
+  cursor: pointer;
+  transition: color 0.15s, background 0.15s, box-shadow 0.15s;
+  white-space: nowrap;
+}
+
+.lh-net-view-btn:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.lh-net-view-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.lh-net-view-btn--active,
+.lh-net-view-btn[aria-selected="true"] {
+  color: #04120f;
+  background: linear-gradient(180deg, #3ee0a8 0%, var(--accent) 100%);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25), 0 4px 12px rgba(46, 207, 154, 0.25);
+}
+
+@media (max-width: 720px) {
+  .lh-net-view-switch {
+    order: 10;
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .lh-net-view-btn {
+    flex: 1;
+    padding: 8px 10px;
+    text-align: center;
+  }
+}
+
+/* HowToNetwork (Paul Browning) embedded readings */
+.lh-htn-supplement {
+  margin-top: 1.25rem;
+  padding: 1rem 1.1rem 1.25rem;
+  border: 1px solid rgba(46, 207, 154, 0.28);
+  border-radius: 10px;
+  background: rgba(4, 18, 15, 0.55);
+}
+
+.lh-htn-supplement--compact {
+  padding: 0.65rem 0.85rem;
+  margin-top: 0.75rem;
+}
+
+.lh-htn-supplement-head {
+  margin-bottom: 0.75rem;
+}
+
+.lh-htn-supplement-title {
+  margin: 0.35rem 0 0.5rem;
+  font-size: 1.05rem;
+}
+
+.lh-htn-supplement-links,
+.lh-htn-footer-links {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.lh-htn-body img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.lh-htn-chapter-list {
+  columns: 2;
+  column-gap: 1.5rem;
+  margin: 0.5rem 0 1rem;
+  padding-left: 1.1rem;
+}
+
+.lh-htn-chapter-list .linklike {
+  background: none;
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+  text-align: left;
+  text-decoration: underline;
+}
+
+@media (max-width: 720px) {
+  .lh-htn-chapter-list {
+    columns: 1;
+  }
+}

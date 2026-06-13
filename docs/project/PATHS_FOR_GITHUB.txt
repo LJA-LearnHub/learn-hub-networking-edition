@@ -1,0 +1,63 @@
+Learn Hub path map (relative to repo root)
+==========================================
+
+Root files
+----------
+index.html
+main.js
+study-secret.html
+package.json
+package-lock.json
+README.md
+docs/project/WHAT_TO_UPLOAD.txt
+docs/project/WORKING_COPY.txt
+docs/project/PATHS_FOR_GITHUB.txt
+Study.md
+techplus_study_guide.md
+
+Primary folders
+---------------
+assets/
+build/
+docs/
+docs/guides/
+docs/project/
+scripts/
+study-space/
+tech-plus-exam/
+chapters/                       (if present)
+archive/
+
+Key runtime files
+-----------------
+assets/learn-hub-app.js
+assets/learn-hub-courses.js
+assets/learn-hub-layout.css
+assets/learn-hub-teach.css
+assets/learn-hub-tokens.css
+
+Tech+ guide files
+-----------------
+docs/guides/Study.html
+docs/guides/techplus_study_guide.html
+Study.md
+techplus_study_guide.md
+
+Common generated bundles
+------------------------
+assets/learn-hub-techplus.js
+assets/learn-hub-techplus-md.js
+assets/learn-hub-security-md.js
+assets/learn-hub-kali-md.js
+
+Ignore in source control
+------------------------
+node_modules/
+exe-build/
+exe-build-fresh/
+dist/
+*.exe
+*.msi
+*.zip
+*.blockmap
+

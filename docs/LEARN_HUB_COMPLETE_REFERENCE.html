@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Learn Hub — complete project reference</title>
+  <style>
+    :root { --bg: #0f1419; --card: #1a222c; --text: #e6edf3; --muted: #8b9cb3; --accent: #39c5cf; --border: #30363d; --part: #6e7681; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, "Segoe UI", sans-serif; line-height: 1.55; color: var(--text); background: var(--bg); padding: 1.5rem 1.25rem 3rem; max-width: 56rem; margin-left: auto; margin-right: auto; }
+    h1 { font-size: 1.45rem; letter-spacing: -0.02em; margin-top: 0; }
+    h2 { font-size: 1.12rem; margin-top: 2.25rem; padding-bottom: 0.35rem; border-bottom: 1px solid var(--border); color: var(--accent); scroll-margin-top: 0.75rem; }
+    h2.part-head { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--part); border-bottom: none; margin-top: 2.75rem; margin-bottom: -0.5rem; padding-bottom: 0; }
+    h2.part-head:first-of-type { margin-top: 0.5rem; }
+    h3 { font-size: 0.98rem; margin-top: 1.35rem; color: #e6edf3; font-weight: 650; }
+    p, li { font-size: 0.94rem; color: #c9d1d9; }
+    a { color: #58a6ff; }
+    code { font-family: ui-monospace, Consolas, monospace; font-size: 0.86em; background: #21262d; padding: 0.12em 0.35em; border-radius: 4px; }
+    pre { background: #161b22; border: 1px solid var(--border); padding: 1rem; overflow-x: auto; font-size: 0.8rem; line-height: 1.45; border-radius: 8px; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 0.75rem 0; }
+    th, td { border: 1px solid var(--border); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+    th { background: var(--card); color: var(--muted); font-weight: 600; }
+    .note { border-left: 3px solid var(--accent); padding: 0.65rem 1rem; background: var(--card); border-radius: 0 8px 8px 0; margin: 1rem 0; font-size: 0.9rem; }
+    nav.toc { background: var(--card); padding: 1rem 1.35rem 1.15rem; border-radius: 10px; border: 1px solid var(--border); margin-bottom: 2rem; }
+    nav.toc > strong { display: block; margin-bottom: 0.5rem; font-size: 0.95rem; }
+    nav.toc .toc-parts { margin: 0; padding-left: 0; list-style: none; }
+    nav.toc .toc-parts > li { margin: 0.85rem 0 0; }
+    nav.toc .toc-part-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 0.35rem; }
+    nav.toc ul ul { margin: 0.25rem 0 0; padding-left: 1rem; }
+    nav.toc a { text-decoration: none; }
+    nav.toc a:hover { text-decoration: underline; }
+    .muted { color: var(--muted); font-size: 0.88rem; }
+    section.chunk { margin-bottom: 0.25rem; }
+  </style>
+</head>
+<body>
+
+<h1>Learn Hub — complete project reference</h1>
+<p class="muted">Technical map of <code>G:\Hubs\Learn-Hub</code> for maintainers: runtime behavior, curriculum data, UI structure, Tech+ build pipeline, and repo tooling. Third-party <code>node_modules/</code> is summarized only.</p>
+
+<nav class="toc" aria-label="On this page">
+  <strong>Contents</strong>
+  <ul class="toc-parts">
+    <li>
+      <div class="toc-part-label">Part I — Introduction</div>
+      <ul>
+        <li><a href="#purpose">What this project is</a></li>
+        <li><a href="#architecture">Runtime architecture</a></li>
+      </ul>
+    </li>
+    <li>
+      <div class="toc-part-label">Part II — How the app runs</div>
+      <ul>
+        <li><a href="#boot">Boot sequence &amp; script load order</a></li>
+        <li><a href="#data">Curriculum model &amp; merge rules</a></li>
+        <li><a href="#deep-techplus"><code>LEARN_HUB_DEEP</code>, Tech+, Security, Labs bundles</a></li>
+        <li><a href="#storage">Progress, <code>localStorage</code>, XP &amp; constants</a></li>
+        <li><a href="#index-detail"><code>index.html</code> — regions &amp; element IDs</a></li>
+        <li><a href="#app"><code>learn-hub-app.js</code> — subsystems &amp; functions</a></li>
+        <li><a href="#apply-lesson"><code>applyLessonUI</code> &amp; body classes</a></li>
+        <li><a href="#resolved-read"><code>getResolvedReadHtml</code> &amp; chapter loader</a></li>
+        <li><a href="#check-schema">Autograde <code>check</code> shapes</a></li>
+        <li><a href="#quiz-tech">Tech+ quiz, keyboard, iframe, SQL &amp; Python</a></li>
+      </ul>
+    </li>
+    <li>
+      <div class="toc-part-label">Part III — Styling</div>
+      <ul>
+        <li><a href="#css"><code>learn-hub-*.css</code> — tokens, layout, teach</a></li>
+        <li><a href="#css-catalog">Class catalog (major groups)</a></li>
+      </ul>
+    </li>
+    <li>
+      <div class="toc-part-label">Part IV — Tech+ content pipeline</div>
+      <ul>
+        <li><a href="#chapters"><code>chapters/*.md</code> sources</a></li>
+        <li><a href="#build-pipeline">Build pipeline (Markdown → chunks)</a></li>
+        <li><a href="#segment-wrap">Study-guide wrapper (<code>wrapBody</code>)</a></li>
+      </ul>
+    </li>
+    <li>
+      <div class="toc-part-label">Part V — Repository &amp; tooling</div>
+      <ul>
+        <li><a href="#root">Root &amp; config files</a></li>
+        <li><a href="#assets"><code>assets/</code> bundles</a></li>
+        <li><a href="#scripts"><code>scripts/</code></a></li>
+        <li><a href="#docs"><code>docs/</code> &amp; <code>.cursor</code></a></li>
+        <li><a href="#npm">npm scripts</a></li>
+        <li><a href="#external">CDN &amp; Node dependencies</a></li>
+      </ul>
+    </li>
+    <li>
+      <div class="toc-part-label">Part VI — Reference</div>
+      <ul>
+        <li><a href="#edge">Edge cases &amp; defensive behavior</a></li>
+        <li><a href="#large-bundles">Large generated bundles</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<!-- ========== Part I ========== -->
+<h2 class="part-head" id="part-i">Part I — Introduction</h2>
+
+<section class="chunk" id="purpose">
+<h2>What this project is</h2>
+<p>Learn Hub is a <strong>client-only</strong> learning application: one <code>index.html</code> loads several large JavaScript bundles that define hundreds of lessons across <strong>eight</strong> tracks (HTML, CSS, JavaScript, Python, SQL, <strong>Security</strong> (workplace / Security+ prep), <strong>Labs</strong> (Kali VM hands-on curriculum), and CompTIA <strong>Tech+</strong>). There is no backend; progress and preferences live in <code>localStorage</code>. Practice tracks embed live editors (HTML/CSS/JS in a sandboxed iframe, Python via Pyodide, SQL via sql.js). <strong>Tech+</strong> adds long-form study-guide content from Markdown, split into lazy-loaded chapter chunks, plus imported <strong>GimKit</strong> question-set bundles for Tech+ Questions mode. <strong>Security</strong> and <strong>Labs</strong> ship similar long-form HTML from Markdown-derived bundles (<code>learn-hub-security-md.js</code>, <code>learn-hub-kali-md.js</code>) merged at boot.</p>
+</section>
+
+<section class="chunk" id="architecture">
+<h2>Runtime architecture</h2>
+<p>The DOM is a fixed shell: left <strong>sidebar</strong> (course pills, XP bar, filterable lesson list, accessibility toggles, reset), center <strong>main</strong> (top bar with title, lesson picker, progress bar, optional “Hide This step”), and a two-column <strong>content grid</strong> — on wide screens, <strong>Practice</strong> (editors / quiz) left and <strong>This step / Notes / Reading</strong> right. On small screens the layout stacks; Tech+ “learn” steps hide the practice column entirely (<code>learn-only</code> body class).</p>
+<pre><code>┌─────────────────────────────────────────────────────────────┐
+│  Sidebar: courses · XP · lesson nav + filter · a11y · reset  │
+├──────────────────────────────┬──────────────────────────────┤
+│  Practice: web | py | sql    │  Teach: strip + reference /  │
+│  or Tech / Security quiz      │  full-chapter reading        │
+├──────────────────────────────┴──────────────────────────────┤
+│  Footer: Continue | Skip lesson | hints                     │
+└─────────────────────────────────────────────────────────────┘
+Data: LEARN_HUB_COURSES + merged HTML per lesson. URL: ?course=&amp;lesson=</code></pre>
+</section>
+
+<!-- ========== Part II ========== -->
+<h2 class="part-head" id="part-ii">Part II — How the app runs</h2>
+
+<section class="chunk" id="boot">
+<h2>Boot sequence &amp; script load order</h2>
+<p><code>index.html</code> loads scripts in this order:</p>
+<ol>
+  <li><code>learn-hub-courses.js</code> → <code>window.LEARN_HUB_COURSES</code></li>
+  <li><code>learn-hub-depth.js</code> → <code>window.LEARN_HUB_DEPTH</code> (reserved; often empty)</li>
+  <li><code>learn-hub-techplus.js</code> → <code>window.LEARN_HUB_TECHPLUS</code></li>
+  <li><code>learn-hub-gimkit-questions.js</code> → <code>window.LEARN_HUB_GIMKIT_QUIZZES</code> (generated question sets for Tech+ Questions mode)</li>
+  <li><code>learn-hub-techplus-md.js</code> → loader, hashes, <code>loadLearnHubTechplusChapter(n)</code></li>
+  <li><code>learn-hub-security-md.js</code> → <code>window.LEARN_HUB_SECURITY_MD</code> (Security track HTML segments)</li>
+  <li><code>learn-hub-kali-md.js</code> → <code>window.LEARN_HUB_KALI_MD</code> (Labs / Kali curriculum segments)</li>
+  <li><code>learn-hub-deep.js</code> → <code>window.LEARN_HUB_DEEP</code></li>
+  <li><code>learn-hub-playground.js</code> → <code>window.LEARN_HUB_PLAYGROUND</code></li>
+  <li><code>learn-hub-app.js</code> → merges curriculum, binds UI, <code>learnHubRunApp</code> on DOM ready</li>
+</ol>
+<p>Immediately after the first IIFE in <code>learn-hub-app.js</code>, each lesson’s <code>narrative</code> is concatenated with <code>LEARN_HUB_DEPTH[id]</code>, <code>LEARN_HUB_DEEP[id]</code>, <code>LEARN_HUB_TECHPLUS[id]</code> → <code>readHtmlBase</code>; then <code>LEARN_HUB_TECHPLUS_MD[id]</code>, <code>LEARN_HUB_SECURITY_MD[id]</code>, and <code>LEARN_HUB_KALI_MD[id]</code> are appended (in that order) into <code>readHtml</code>; <code>narrative</code> is cleared. On failure, a minimal “Setup” course is injected.</p>
+</section>
+
+<section class="chunk" id="data">
+<h2>Curriculum model &amp; merge rules</h2>
+<p><strong>Course:</strong> <code>id</code>, <code>name</code>, <code>ws</code> (<code>web</code> | <code>py</code> | <code>sql</code> | <code>tech</code> for Tech+, Security, and Labs — reading/quiz layout without web/py/sql editors), <code>lessons[]</code>.</p>
+<p><strong>Lesson:</strong> <code>id</code>, <code>unit</code> (sidebar grouping), <code>kind</code> (<code>learn</code> | <code>practice</code> | <code>challenge</code> | <code>quiz</code>), <code>title</code>, optional <code>narrative</code> (usually empty in bundle), <code>starter</code> / <code>starterPy</code> / <code>starterSql</code>, <code>seed</code> (SQL), <code>check</code> (autograder), <code>questions</code> (Tech+ MCQ).</p>
+<p><strong>Tech+ study-guide ids:</strong> <code>tech-sg-NN-MM</code> (chapter NN, segment MM). Reading often loads from <code>LEARN_HUB_TECHPLUS_MD</code> after <code>loadLearnHubTechplusChapter(N)</code>.</p>
+<p><strong>Locking:</strong> Courses whose <code>ws</code> is <code>"tech"</code> (Tech+, Security, Labs) have <strong>no</strong> linear lock — any lesson can be opened anytime. All other workspaces (<code>web</code>, <code>py</code>, <code>sql</code>) require the previous lesson in that course to be marked <code>done</code> before the next unlocks.</p>
+</section>
+
+<section class="chunk" id="deep-techplus">
+<h2><code>LEARN_HUB_DEEP</code>, Tech+, Security, and Labs bundles</h2>
+<p>Objects keyed by <strong>lesson id</strong> → HTML string. Merge order into readable content: <code>LEARN_HUB_DEPTH</code> → <code>LEARN_HUB_DEEP</code> → <code>LEARN_HUB_TECHPLUS</code> as <code>readHtmlBase</code>, then <code>LEARN_HUB_TECHPLUS_MD</code>, <code>LEARN_HUB_SECURITY_MD</code>, and <code>LEARN_HUB_KALI_MD</code> are appended in order for <code>readHtml</code>.</p>
+<ul>
+  <li><strong>DEEP</strong> — Long-form reference for web/css/js/py/sql tracks (MDN links, recurring footers, callouts).</li>
+  <li><strong>TECHPLUS</strong> — Shorter Tech+ excerpts for lessons that are not full MD segments (intros, etc.).</li>
+  <li><strong>TECHPLUS_MD</strong> — Large study-guide segments for <code>tech-sg-*</code>; populated by lazy-loaded <code>learn-hub-techplus-md-chNN.js</code> files.</li>
+  <li><strong>SECURITY_MD</strong> — Segments for <code>lh-sec-*</code> and Security quizzes; built from <code>docs/SECURITY_CONCEPTS_WORKPLACE_CURRICULUM.md</code> (<code>npm run build:security</code>).</li>
+  <li><strong>KALI_MD</strong> — Segments for <code>labs-kali-*</code>; built from <code>docs/KALI_HANDS_ON_LAB_CURRICULUM.md</code> (<code>npm run build:kali</code>). Optional <code>npm run emit:kali-slow</code> overwrites that Markdown from <code>emit-kali-slow-curriculum.mjs</code>, which imports phased lab prose from <code>kali-lab-rich-procedures.mjs</code>.</li>
+</ul>
+</section>
+
+<section class="chunk" id="storage">
+<h2>Progress, <code>localStorage</code>, XP &amp; constants</h2>
+<h3>Storage keys</h3>
+<table>
+  <thead><tr><th>Key</th><th>Role</th></tr></thead>
+  <tbody>
+    <tr><td><code>learn-hub-progress-v9</code></td><td>JSON: <code>xp</code>, <code>activeCourseId</code>, <code>courses[courseId].done[lessonId]</code>, <code>courses[courseId].idx</code> (lesson index).</td></tr>
+    <tr><td><code>learn-hub-teach-collapsed</code></td><td><code>"1"</code>: hide right column on applicable steps.</td></tr>
+    <tr><td><code>learn-hub-a11y-contrast-v1</code></td><td><code>body.lh-high-contrast</code></td></tr>
+    <tr><td><code>learn-hub-a11y-reduce-motion-v1</code></td><td><code>body.lh-force-reduce-motion</code></td></tr>
+  </tbody>
+</table>
+<p><strong>XP:</strong> <code>XP_PER = 10</code> per lesson first completion. <code>maxXp = totalLessonsAll × 10</code>. Progress bar: done lessons in track; XP bar: global XP vs maxXp.</p>
+<p><strong>Reset all:</strong> Removes <code>learn-hub-progress-v9</code> only; reloads page.</p>
+<h3 id="constants">Notable constants (<code>learn-hub-app.js</code>)</h3>
+<table>
+  <thead><tr><th>Item</th><th>Value / behavior</th></tr></thead>
+  <tbody>
+    <tr><td><code>INDENT</code></td><td>Two spaces for Tab in editors.</td></tr>
+    <tr><td>Chapter search debounce</td><td>~220 ms; lesson filter ~50 ms.</td></tr>
+    <tr><td>TOC max headings</td><td>48; ids <code>lh-ch-{lessonId}-{n}</code>.</td></tr>
+    <tr><td><code>chapterSearchState.runId</code></td><td>Invalidates stale async search results.</td></tr>
+  </tbody>
+</table>
+</section>
+
+<section class="chunk" id="index-detail">
+<h2><code>index.html</code> — regions &amp; element IDs</h2>
+<ul>
+  <li><strong>Head:</strong> charset, viewport, no-cache meta, fonts, <code>learn-hub-tokens.css</code>, <code>learn-hub-layout.css</code>, <code>learn-hub-teach.css</code> (same <code>?v=…</code> query on each)</li>
+  <li><strong><code>#lh-announcer</code></strong> — <code>aria-live</code> for SR announcements.</li>
+  <li><strong><code>#sidebar</code></strong> — <code>#course-pills</code>, <code>#xp-bar</code>/<code>#xp-fill</code>/<code>#xp-label</code>, <code>#lesson-filter</code>, <code>#sidebar-track-name</code>, <code>#sidebar-lesson-nav</code>, a11y toggles, <code>#btn-reset-all</code>. Tech+ includes a Chapters/Objectives/Questions segment switch; Questions mode hides teach/notes and keeps quiz-only flow.</li>
+  <li><strong><code>#lh-main</code></strong> — <code>#menu-toggle</code>, <code>#lesson-title</code>, <code>#lh-lesson-place</code>, <code>#lesson-picker</code>, <code>#progress-fill</code>, <code>#btn-toggle-teach</code>.</li>
+  <li><strong><code>#content-grid</code></strong> — <code>#practice-column</code> with <code>#ws-web</code>, <code>#ws-py</code>, <code>#ws-sql</code>, <code>#ws-tech</code> (quiz UI).</li>
+  <li><strong><code>#teach</code></strong> — <code>#teach-boot-placeholder</code> until JS runs.</li>
+  <li><strong>Footer</strong> — <code>#btn-continue</code>, <code>#btn-skip-chapter</code>, <code>#footer-hint</code>.</li>
+  <li><strong>Inline script</strong> — capture-phase error on failed script loads.</li>
+</ul>
+</section>
+
+<section class="chunk" id="app">
+<h2><code>learn-hub-app.js</code> — subsystems &amp; key functions</h2>
+<p>~2200+ lines: errors, <code>el</code> DOM cache, sql.js + Pyodide loaders, URL sync, Tech+ banner fix, sidebar filter, chapter search, nav, <code>applyLessonUI</code>, workspaces, <code>runCheck</code>, XP, <code>wire</code>, 3s watchdog.</p>
+<table>
+  <thead><tr><th>Function</th><th>Role</th></tr></thead>
+  <tbody>
+    <tr><td><code>escapeHtml</code>, <code>decodeLessonTitle</code>, <code>plainTextFromHtml</code></td><td>Safe UI; entity decode; strip tags for search.</td></tr>
+    <tr><td><code>chapterNumberForLesson</code></td><td>Chapter 1–12 from id or unit label.</td></tr>
+    <tr><td><code>lessonLocked</code> / <code>tagForKind</code></td><td>Sequential lock (not tech); sidebar tags.</td></tr>
+    <tr><td><code>applyLessonFilter</code>, <code>scrollLessonToTop</code></td><td>Filter visibility; scroll reset.</td></tr>
+    <tr><td><code>workspaceForCourse</code>, <code>showWorkspaces</code></td><td>Pick visible workspace panel.</td></tr>
+    <tr><td><code>normalizeCell</code>, <code>renderTable</code>, <code>resultMatch</code>, <code>buildDbFromUserScript</code>, <code>checkSqlSchema</code></td><td>SQL grading &amp; display.</td></tr>
+    <tr><td><code>toast</code>, <code>loadProgress</code>, <code>saveProgress</code></td><td>XP toast; persistence.</td></tr>
+    <tr><td><code>fccLessonStrip</code>, <code>learnHubKick</code></td><td>Strip HTML; boot wrapper.</td></tr>
+  </tbody>
+</table>
+</section>
+
+<section class="chunk" id="apply-lesson">
+<h2><code>applyLessonUI</code> — branches &amp; body classes</h2>
+<ol>
+  <li><code>tech-sg-*</code> with missing MD → loading shell → <code>loadLearnHubTechplusChapter</code> → re-enter.</li>
+  <li><code>data-lh-track</code>; <code>lh-compact-teach</code> when <code>ws !== "tech"</code>.</li>
+  <li>Tech+ learn + full chapter: chapter search, <code>.lh-tech-reading</code>, <code>teach-full-chapter</code>, <code>learn-only</code>, hide practice, TOC + search bind.</li>
+  <li>Tech+ learn + not full: <code>&lt;details class="lh-reference-tech"&gt;</code> Notes.</li>
+  <li>Other tracks: <code>&lt;details class="lh-reference"&gt;</code> Reference.</li>
+  <li>Practice/quiz: workspaces + starters + <code>renderTechQuiz</code> if needed; Check disabled when <code>noAutocheck</code>.</li>
+  <li>Teach collapse hidden for Tech+ learn; else uses <code>learn-hub-teach-collapsed</code>.</li>
+</ol>
+</section>
+
+<section class="chunk" id="resolved-read">
+<h2><code>getResolvedReadHtml</code> &amp; chapter loader</h2>
+<p>For <code>tech-sg-NN-MM</code>: <code>readHtmlBase</code> + <code>LEARN_HUB_TECHPLUS_MD[id]</code>, then <code>normalizeTechplusSourceBanner</code>. Else: <code>readHtml</code> or <code>narrative</code>.</p>
+<p><code>loadLearnHubTechplusChapter(ch)</code> returns a cached Promise per chapter; injects <code>assets/learn-hub-techplus-md-chNN.js?v=hash</code>. Failure shows error in <code>#teach</code>.</p>
+</section>
+
+<section class="chunk" id="check-schema">
+<h2>Autograde <code>check</code> object shapes</h2>
+<table>
+  <thead><tr><th><code>type</code></th><th>Summary</th></tr></thead>
+  <tbody>
+    <tr><td><code>web</code></td><td><code>cssIncludes</code>/<code>jsIncludes</code>; <code>dom[]</code>; <code>computed[]</code>; <code>click[]</code> with <code>then</code>.</td></tr>
+    <tr><td><code>sqlSelect</code></td><td>Seed + user SQL vs <code>expectSql</code>; <code>ignoreOrder</code>.</td></tr>
+    <tr><td><code>sqlScalar</code></td><td>Single cell vs <code>equals</code>.</td></tr>
+    <tr><td><code>sqlSchema</code></td><td><code>tables[name].columns</code> vs PRAGMA.</td></tr>
+    <tr><td><code>sqlAll</code></td><td><code>parts[]</code>: views, FKs, nested schema, scalars, <code>compareQueries</code>.</td></tr>
+    <tr><td><code>pyStdout</code></td><td><code>equals</code> / <code>includes</code> / <code>regex</code>; <code>normalize</code> trim/lines.</td></tr>
+  </tbody>
+</table>
+<p><strong>Web:</strong> Uses iframe <code>contentDocument</code> after preview refresh. <strong><code>sqlAll.parts</code>:</strong> first failing part wins.</p>
+<p>Learn steps without <code>check</code> → Check button disabled (web/py/sql).</p>
+</section>
+
+<section class="chunk" id="quiz-tech">
+<h2>Tech+ quiz, keyboard, iframe, SQL &amp; Python</h2>
+<h3>Tech+ quiz</h3>
+<p>Feedback visibility is now submit-driven: the Feedback panel remains hidden until <strong>Check answers</strong> is pressed.</p>
+<p><code>questions[]</code>: <code>{ q, choices[], correct }</code> — <code>correct</code> is zero-based index. Radios <code>quiz_{qi}</code>. Failure feedback may include raw <code>&lt;strong&gt;</code>.</p>
+<h3 id="keyboard">Keyboard</h3>
+<p>Ctrl+Enter: Run (web preview / SQL). Shift+Ctrl+Enter: Check. Python Run via Ctrl+Enter triggers Run button. Tab / Shift+Tab: two-space indent in editors.</p>
+<h3>Preview iframe</h3>
+<p><code>sandbox="allow-scripts"</code>. <code>buildSrcdoc</code> escapes <code>&lt;/script&gt;</code> in user JS.</p>
+<h3>SQL</h3>
+<p><code>lessonDb</code> per lesson; <code>freshLessonDb(seed)</code> reapplies seed.</p>
+<h3>Python check</h3>
+<p>Wrapped <code>exec</code> captures stdout/stderr to JSON for comparison.</p>
+</section>
+
+<!-- ========== Part III ========== -->
+<h2 class="part-head" id="part-iii">Part III — Styling</h2>
+
+<section class="chunk" id="css">
+<h2><code>learn-hub-tokens.css</code>, <code>learn-hub-layout.css</code>, <code>learn-hub-teach.css</code> — overview</h2>
+<p>~2600 lines: <code>:root</code> tokens, layout (<code>.app</code>, sidebar grid, main), components (pills, XP, lesson rows, workspaces, iframe preview), Tech+ prose (<code>.lh-notes-prose</code>, <code>.lh-chapter-markdown</code>), a11y toggles, responsive (960px / 720px), <code>@media print</code>.</p>
+<p><strong>Tokens (sample):</strong> <code>--bg</code>, <code>--surface</code>, <code>--accent</code>, <code>--blue</code>, <code>--tech</code>, <code>--gold</code>, <code>--notes-*</code>. <code>body.lh-high-contrast</code> overrides.</p>
+<p><strong>Layout notes:</strong> <code>content.single-pane</code>; <code>body.teach-collapsed</code> hides teach; <code>data-lh-track</code> tints teach for html/css/js/py/sql.</p>
+</section>
+
+<section class="chunk" id="css-catalog">
+<h2>Class catalog (major groups)</h2>
+<table>
+  <thead><tr><th>Area</th><th>Examples</th><th>Role</th></tr></thead>
+  <tbody>
+    <tr><td>Shell</td><td><code>.app</code>, <code>.sidebar</code>, <code>.main</code>, <code>.content</code></td><td>Flex/grid layout.</td></tr>
+    <tr><td>Sidebar</td><td><code>.course-pill</code>, <code>.lesson-btn</code>, <code>.unit</code></td><td>Tracks + lesson list.</td></tr>
+    <tr><td>Teach</td><td><code>.lesson-shell</code>, <code>.fcc-strip</code> (non–study-guide tracks), <code>.lh-reference</code>, Tech+ SG: <code>.lh-chapter-search-wrap</code> + reading</td><td>Study-guide Tech+ lessons omit the FCC strip and tip banner; search + article only.</td></tr>
+    <tr><td>Tech+</td><td><code>.teach-notes</code>, <code>.lh-tg-root</code>, <code>.lh-tg-recap</code></td><td>Reading surface + callouts.</td></tr>
+    <tr><td>Chapter</td><td><code>.lh-chapter-toc</code>, <code>.lh-chapter-search-wrap</code></td><td>TOC + find-in-chapter.</td></tr>
+    <tr><td>Workspaces</td><td><code>.web-split</code>, <code>.toolbar</code>, <code>button.tool</code></td><td>Editors + actions.</td></tr>
+    <tr><td>A11y</td><td><code>.lh-skip-link</code>, <code>.lh-sr-announcer</code></td><td>Skip link, live region.</td></tr>
+  </tbody>
+</table>
+</section>
+
+<!-- ========== Part IV ========== -->
+<h2 class="part-head" id="part-iv">Part IV — Tech+ content pipeline</h2>
+
+<section class="chunk" id="chapters">
+<h2><code>chapters/*.md</code> — sources</h2>
+<p>Twelve Markdown files; build: preprocess → <code>marked</code> (gfm, no hard breaks) → <code>polishTechplusHtml</code> → split → chapter JS + loader + optional course rows.</p>
+<table>
+  <thead><tr><th>File</th><th>Book topic</th></tr></thead>
+  <tbody>
+    <tr><td><code>01_Core_Hardware_Components.md</code></td><td>Core hardware</td></tr>
+    <tr><td><code>02_Peripherals_and_Connectors.md</code></td><td>Peripherals and connectors</td></tr>
+    <tr><td><code>03_Computing_Devices_and_the_Internet_of_Things.md</code></td><td>Devices and IoT</td></tr>
+    <tr><td><code>04_Operating_Systems.md</code></td><td>Operating systems</td></tr>
+    <tr><td><code>05_Software_Applications.md</code></td><td>Software applications</td></tr>
+    <tr><td><code>06_Software_Development.md</code></td><td>Software development</td></tr>
+    <tr><td><code>07_Database_Fundamentals.md</code></td><td>Databases</td></tr>
+    <tr><td><code>08_Networking_Concepts_and_Technologies.md</code></td><td>Networking</td></tr>
+    <tr><td><code>09_Cloud_Computing_and_Artificial_Intelligence.md</code></td><td>Cloud and AI</td></tr>
+    <tr><td><code>10_Security_Concepts_and_Threats.md</code></td><td>Security concepts</td></tr>
+    <tr><td><code>11_Security_Best_Practices.md</code></td><td>Security practices</td></tr>
+    <tr><td><code>12_Data_Continuity_and_Computer_Support.md</code></td><td>Data continuity and support</td></tr>
+  </tbody>
+</table>
+</section>
+
+<section class="chunk" id="build-pipeline">
+<h2>Build pipeline (Markdown → chunks)</h2>
+<p><code>scripts/build-techplus-from-markdown.mjs</code>:</p>
+<ol>
+  <li><strong>CHAPTER_FILES</strong> — 12 rows <code>[tech-sg-NN, filename, chapter title]</code>.</li>
+  <li><strong>preprocessMarkdown</strong> — PDF cleanup (tables, URLs, hyphens, …).</li>
+  <li><strong>marked.parse</strong> — <code>{ gfm: true, breaks: false }</code>.</li>
+  <li><strong>polishTechplusHtml</strong> — mojibake, exercise repairs, OCR words, “see figure” text, etc.</li>
+  <li><strong>findHtmlSplitMarkers</strong> — <code>&lt;h3</code>, <code>EXERCISE N.M</code>, <code>Review Questions</code>; dedupe by <code>MIN_MARKER_GAP</code> (48).</li>
+  <li><strong>slice</strong> — chunks ≥ 80 chars; oversize split at <code>&lt;/p&gt;</code> (max 16500); tiny merge (&lt;120) unless lead <code>&lt;h3</code>.</li>
+  <li><strong>Ids</strong> — <code>tech-sg-NN-MM</code> per segment; <code>segmentLessonTitle</code> for sidebar.</li>
+  <li><strong>Output</strong> — <code>writeChapterJsFiles</code> + <code>writeTechplusMdLoader</code>; may update <code>learn-hub-courses.js</code>.</li>
+</ol>
+</section>
+
+<section class="chunk" id="segment-wrap">
+<h2>Study-guide wrapper (<code>wrapBody</code>)</h2>
+<ul>
+  <li><code>&lt;p class="lh-tg-source"&gt;</code> — title, <code>.lh-tg-chapter</code>, lesson id, disclaimer.</li>
+  <li><code>&lt;hr class="teach-hr lh-md-start"/&gt;</code></li>
+  <li><code>&lt;div class="lh-tg-root tech-prose lh-tg-markdown lh-chapter-markdown"&gt;</code> — body HTML.</li>
+</ul>
+<p>Runtime <code>normalizeTechplusSourceBanner</code> adjusts the bold line in <code>lh-tg-source</code>.</p>
+</section>
+
+<!-- ========== Part V ========== -->
+<h2 class="part-head" id="part-v">Part V — Repository &amp; tooling</h2>
+
+<section class="chunk" id="root">
+<h2>Root &amp; config files</h2>
+<table>
+  <thead><tr><th>File</th><th>Role</th></tr></thead>
+  <tbody>
+    <tr><td><code>index.html</code></td><td>App shell, scripts, CSS link.</td></tr>
+    <tr><td><code>README.md</code></td><td>Operations, paths, troubleshooting, manifest.</td></tr>
+    <tr><td><code>package.json</code> / <code>package-lock.json</code></td><td>Node ≥18, npm scripts, <code>marked</code>.</td></tr>
+    <tr><td><code>.gitignore</code></td><td><code>node_modules/</code></td></tr>
+    <tr><td><code>docs/project/WORKING_COPY.txt</code>, <code>docs/project/PATHS_FOR_GITHUB.txt</code></td><td>Canonical path hints; upload file list.</td></tr>
+  </tbody>
+</table>
+</section>
+
+<section class="chunk" id="assets">
+<h2><code>assets/</code> bundles</h2>
+<table>
+  <thead><tr><th>File</th><th>Role</th></tr></thead>
+  <tbody>
+    <tr><td><code>learn-hub-tokens.css</code></td><td>Design tokens and high-contrast overrides.</td></tr>
+    <tr><td><code>learn-hub-layout.css</code></td><td>App shell, sidebar, practice, workspaces, utilities.</td></tr>
+    <tr><td><code>learn-hub-teach.css</code></td><td>Right column: lesson shell, strips, reference, Tech+ prose.</td></tr>
+    <tr><td><code>learn-hub-app.js</code></td><td>Application logic.</td></tr>
+    <tr><td><code>learn-hub-courses.js</code></td><td>Minified <code>LEARN_HUB_COURSES</code> — full curriculum.</td></tr>
+    <tr><td><code>learn-hub-depth.js</code></td><td><code>LEARN_HUB_DEPTH = {}</code></td></tr>
+    <tr><td><code>learn-hub-deep.js</code></td><td><code>LEARN_HUB_DEEP</code> — large reference HTML map.</td></tr>
+    <tr><td><code>learn-hub-techplus.js</code></td><td><code>LEARN_HUB_TECHPLUS</code> excerpts.</td></tr>
+    <tr><td><code>learn-hub-techplus-md.js</code></td><td>Loader + chapter hashes.</td></tr>
+    <tr><td><code>learn-hub-techplus-md-ch01.js</code>–<code>ch12.js</code></td><td>Generated segment maps per chapter.</td></tr>
+    <tr><td><code>learn-hub-security-md.js</code></td><td><code>LEARN_HUB_SECURITY_MD</code> — generated; very large.</td></tr>
+    <tr><td><code>learn-hub-kali-md.js</code></td><td><code>LEARN_HUB_KALI_MD</code> — generated from Kali lab Markdown.</td></tr>
+    <tr><td><code>learn-hub-playground.js</code></td><td>Default starters for learn steps.</td></tr>
+  </tbody>
+</table>
+</section>
+
+<section class="chunk" id="scripts">
+<h2><code>scripts/</code></h2>
+<table>
+  <thead><tr><th>Script</th><th>Purpose</th></tr></thead>
+  <tbody>
+    <tr><td><code>learn-hub-paths.mjs</code></td><td>Repo root, <code>assets/</code>, <code>chapters/</code> paths.</td></tr>
+    <tr><td><code>techplus-chapter-io.mjs</code></td><td>Split map → chNN files + loader hashes.</td></tr>
+    <tr><td><code>build-techplus-from-markdown.mjs</code></td><td>Main Tech+ build.</td></tr>
+    <tr><td><code>techplus-html-polish.mjs</code></td><td><code>polishTechplusHtml</code>.</td></tr>
+    <tr><td><code>apply-techplus-html-polish.mjs</code></td><td>Re-polish existing output.</td></tr>
+    <tr><td><code>validate-techplus-html.mjs</code></td><td>Safety validation.</td></tr>
+    <tr><td><code>normalize-techplus-markdown.mjs</code></td><td>MD cleanup.</td></tr>
+    <tr><td><code>audit-techplus-*.mjs</code></td><td>Quality / consistency / banners / foreign ids.</td></tr>
+    <tr><td><code>restore-techplus-md-from-reference.mjs</code></td><td>Merge missing segments.</td></tr>
+    <tr><td><code>fix-techplus-source-banner-titles.mjs</code>, <code>patch-*.mjs</code></td><td>Repairs.</td></tr>
+    <tr><td><code>build-techplus-import.mjs</code></td><td>Import from study guide HTML.</td></tr>
+    <tr><td><code>migrate-fcc-deep-playground.mjs</code></td><td>Deep + playground regen.</td></tr>
+    <tr><td><code>print-learn-hub-manifest.mjs</code></td><td>README byte/line table.</td></tr>
+    <tr><td><code>add-more-lessons.mjs</code>, <code>expand-*.mjs</code>, <code>build-split.mjs</code></td><td>Curriculum utilities.</td></tr>
+    <tr><td><code>_dump-segments.mjs</code>, <code>_audit-banners.mjs</code></td><td>Debug / internal.</td></tr>
+    <tr><td><code>rebuild-techplus.cmd</code>, <code>apply-techplus-readability-ps1.ps1</code></td><td>Windows helpers.</td></tr>
+    <tr><td><code>vendor/marked.esm.mjs</code></td><td>Vendored marked.</td></tr>
+    <tr><td><code>build-security-from-markdown.mjs</code></td><td>Security curriculum → <code>learn-hub-security-md.js</code> + course rows.</td></tr>
+    <tr><td><code>build-security-quizzes.mjs</code></td><td>Optional: MCQ extraction for Security (run when your workflow regenerates quizzes).</td></tr>
+    <tr><td><code>build-kali-from-markdown.mjs</code></td><td>Kali lab Markdown (<code>&lt;!-- id: --&gt;</code>) → <code>learn-hub-kali-md.js</code> + Labs rows.</td></tr>
+    <tr><td><code>emit-kali-slow-curriculum.mjs</code></td><td>Regenerates <code>docs/KALI_HANDS_ON_LAB_CURRICULUM.md</code> from embedded lesson tables; merges long <strong>Procedure</strong> sections from <code>kali-lab-rich-procedures.mjs</code>.</td></tr>
+    <tr><td><code>kali-lab-rich-procedures.mjs</code></td><td>Phased lab instructions (Apache / Python / SQL / Security / Tech wrappers + per-lab focus strings). Imported only by the Kali emitter.</td></tr>
+  </tbody>
+</table>
+</section>
+
+<section class="chunk" id="docs">
+<h2><code>docs/</code> &amp; <code>.cursor</code></h2>
+<ul>
+  <li><code>TECHPLUS_EDITORIAL_STANDARD.md</code> — Authoring rules.</li>
+  <li><code>TECHPLUS_CHAPTER_REVIEW_CHECKLIST.md</code> — Sign-off checklist.</li>
+  <li><code>SECURITY_CONCEPTS_WORKPLACE_CURRICULUM.md</code> — Security track source Markdown (<code>npm run build:security</code>).</li>
+  <li><code>KALI_HANDS_ON_LAB_CURRICULUM.md</code> — Labs / Kali VM curriculum (slow pace; one <code>&lt;!-- id: labs-kali-… --&gt;</code> block per sidebar lesson). Optional regen: <code>npm run emit:kali-slow</code> (uses <code>kali-lab-rich-procedures.mjs</code>); build bundle: <code>npm run build:kali</code>.</li>
+  <li><code>LEARN_HUB_COMPLETE_REFERENCE.html</code> — This document.</li>
+  <li><code>.cursor/rules/techplus-chapters.mdc</code> — AI/editor guidance for <code>chapters/*.md</code>.</li>
+</ul>
+</section>
+
+<section class="chunk" id="npm">
+<h2>npm scripts</h2>
+<table>
+  <thead><tr><th>Script</th><th>Runs</th></tr></thead>
+  <tbody>
+    <tr><td><code>build:techplus</code></td><td><code>build-techplus-from-markdown.mjs</code></td></tr>
+    <tr><td><code>rebuild:techplus</code></td><td>normalize + build</td></tr>
+    <tr><td><code>verify:techplus</code></td><td>consistency + validate + segment ids + banners</td></tr>
+    <tr><td><code>qa:techplus</code></td><td>normalize → build → verify → audit MD</td></tr>
+    <tr><td><code>restore:techplus-md</code></td><td>Reference merge</td></tr>
+    <tr><td><code>build:security</code></td><td><code>build-security-from-markdown.mjs</code></td></tr>
+    <tr><td><code>build:kali</code></td><td><code>build-kali-from-markdown.mjs</code></td></tr>
+    <tr><td><code>emit:kali-slow</code></td><td><code>emit-kali-slow-curriculum.mjs</code> (rewrites Kali Markdown)</td></tr>
+    <tr><td colspan="2">See <code>package.json</code> for full list (<code>polish:</code>, <code>validate:</code>, <code>fix:</code>, <code>patch:</code>, …).</td></tr>
+  </tbody>
+</table>
+</section>
+
+<section class="chunk" id="external">
+<h2>CDN &amp; Node dependencies</h2>
+<ul>
+  <li>Fonts: Google Fonts (Space Grotesk, JetBrains Mono).</li>
+  <li>sql.js 1.11.0 + wasm (jsDelivr).</li>
+  <li>Pyodide 0.26.2 (jsDelivr).</li>
+  <li><code>marked</code> — devDependency; build-time only.</li>
+</ul>
+</section>
+
+<!-- ========== Part VI ========== -->
+<h2 class="part-head" id="part-vi">Part VI — Reference</h2>
+
+<section class="chunk" id="edge">
+<h2>Edge cases &amp; defensive behavior</h2>
+<ul>
+  <li>Curriculum parse failure → “Setup” course.</li>
+  <li>Boot exception → error in teach; <code>__LH_BOOT_OK</code> watchdog @ 3s.</li>
+  <li>Locked index → jump to first unlocked (non-tech).</li>
+  <li>Tech+ filter: <code>ch N</code>, chapter keywords, bare 1–12.</li>
+  <li>Chapter search: occurrence-based; modulo navigation.</li>
+  <li>SQL CDN fail → error panel; other tracks OK.</li>
+  <li>Build uses <code>marked</code> as library (not CLI) on Windows.</li>
+</ul>
+</section>
+
+<section class="chunk" id="large-bundles">
+<h2>Large generated bundles</h2>
+<div class="note">
+<p><code>learn-hub-courses.js</code>, <code>learn-hub-deep.js</code>, <code>learn-hub-techplus.js</code>, <code>learn-hub-security-md.js</code>, <code>learn-hub-kali-md.js</code>, and each <code>learn-hub-techplus-md-chNN.js</code> are data-dense (often one very long line). Document their <em>schema</em> (Parts II &amp; IV) and edit <em>sources</em> (<code>chapters/*.md</code>, Security/Kali Markdown, generators) rather than hand-editing minified output unless you intend to.</p>
+</div>
+</section>
+
+<p class="muted" style="margin-top:2rem;">Live app: <code>index.html</code> · Operations: <code>README.md</code></p>
+
+</body>
+</html>

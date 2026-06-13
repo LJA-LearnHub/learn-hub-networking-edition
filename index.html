@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Project docs: see docs/project/WORKING_COPY.txt -->
+  <!-- hehe -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="Learn Hub Network Edition — CompTIA Network+ N10-009 summer course, domain deep dives, 1,100+ practice questions, and Packet Tracer labs. Runs locally in your browser." />
+  <meta name="theme-color" content="#04120f" />
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <link rel="icon" type="image/svg+xml" href="assets/lh-favicon.svg?v=lhFavicon20260425" />
+  <link rel="shortcut icon" href="assets/lh-favicon.svg?v=lhFavicon20260425" />
+  <title>Learn Hub · Network Edition</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/learn-hub-tokens.css?v=lhTokensBlueMatch20260430" />
+  <link rel="stylesheet" href="assets/learn-hub-layout.css?v=lhAuthTwoCol20260505" />
+  <link rel="stylesheet" href="assets/learn-hub-teach.css?v=lhTechFlashcardsUi20260501b" />
+  <link rel="stylesheet" href="assets/learn-hub-network-edition.css?v=netEditionHtn20260612" />
+  <link rel="stylesheet" href="assets/learn-hub-network-interactive.css?v=netInteractive20260601" />
+</head>
+<body class="lh-sidebar-hidden lh-network-edition lh-course-networkplus">
+  <a class="lh-skip-link" href="#lh-main">Skip to main content</a>
+  <div id="lh-announcer" class="lh-sr-announcer" aria-live="polite" aria-atomic="true"></div>
+  <div
+    id="lh-auth-overlay"
+    class="lh-auth-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="lh-auth-title"
+    aria-hidden="true"
+  >
+    <div class="lh-auth-card">
+      <div class="lh-auth-shell">
+        <div class="lh-auth-col lh-auth-col--info">
+          <div class="lh-auth-brand" aria-hidden="true">
+            <span class="lh-auth-brand-mark">N+</span>
+            <div class="lh-auth-brand-copy">
+              <span class="lh-auth-brand-name">Learn Hub Network</span>
+              <span class="lh-auth-brand-tag">N10-009 · local profile</span>
+            </div>
+          </div>
+          <h2 id="lh-auth-title" class="lh-auth-title">Sign in</h2>
+          <p class="lh-auth-lead">
+            Create an account or sign in. Progress is saved locally for each username.<br>For best experience, use a desktop browser.<br><br><strong>Network+ summer portal</strong> (flashcards, schedules, full exam bank):<br>Username/Password = <strong>Network</strong><br><br>This edition includes the 10-week summer course, five domain deep-dive units, subnetting workshops, scenario labs, and 1,100+ N10-009 practice questions.
+          </p>
+        </div>
+        <div class="lh-auth-col lh-auth-col--form">
+          <p id="lh-auth-msg" class="lh-auth-msg" role="status" aria-live="polite"></p>
+          <div class="lh-auth-tabs" role="tablist" aria-label="Account">
+            <button type="button" class="lh-auth-tab active" role="tab" id="lh-auth-tab-in" aria-selected="true" aria-controls="lh-auth-panel-in">Sign in</button>
+            <button type="button" class="lh-auth-tab" role="tab" id="lh-auth-tab-up" aria-selected="false" aria-controls="lh-auth-panel-up">Create account</button>
+          </div>
+          <div id="lh-auth-panel-in" class="lh-auth-panel" role="tabpanel" aria-labelledby="lh-auth-tab-in">
+            <form id="lh-auth-form-in" class="lh-auth-form" autocomplete="username">
+              <label class="lh-auth-label" for="lh-auth-in-user">Username</label>
+              <input class="lh-auth-input" id="lh-auth-in-user" name="username" type="text" autocomplete="username" required minlength="2" maxlength="24" pattern="[a-zA-Z0-9_-]+" title="Letters, numbers, underscore, hyphen (2–24 characters)" />
+              <label class="lh-auth-label" for="lh-auth-in-pass">Password</label>
+              <input class="lh-auth-input" id="lh-auth-in-pass" name="password" type="password" autocomplete="current-password" required minlength="4" />
+              <button type="submit" class="tool primary lh-auth-submit">Sign in</button>
+            </form>
+          </div>
+          <div id="lh-auth-panel-up" class="lh-auth-panel lh-auth-panel-hidden" role="tabpanel" aria-labelledby="lh-auth-tab-up">
+            <form id="lh-auth-form-up" class="lh-auth-form" autocomplete="off">
+              <label class="lh-auth-label" for="lh-auth-up-user">Username</label>
+              <input class="lh-auth-input" id="lh-auth-up-user" type="text" autocomplete="off" required minlength="2" maxlength="24" pattern="[a-zA-Z0-9_-]+" title="Letters, numbers, underscore, hyphen (2–24 characters)" />
+              <label class="lh-auth-label" for="lh-auth-up-pass">Password</label>
+              <input class="lh-auth-input" id="lh-auth-up-pass" type="password" autocomplete="new-password" required minlength="4" />
+              <label class="lh-auth-label" for="lh-auth-up-pass2">Confirm password</label>
+              <input class="lh-auth-input" id="lh-auth-up-pass2" type="password" autocomplete="new-password" required minlength="4" />
+              <button type="submit" class="tool primary lh-auth-submit">Create account</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="app" id="app-root">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-head">
+        <div class="lh-title-row">
+          <h1 class="lh-brand-title">Learn Hub</h1>
+        </div>
+        <p class="sub lh-sidebar-docs-top">
+          Network Edition — CompTIA Network+ (N10-009). <a href="network-space/index.html">Summer course portal</a> ·
+          <a href="../howtonetwork/index.html" target="_blank" rel="noopener">HowToNetwork guide</a> ·
+          <a href="https://github.com/LJA-ICSI25/learning-hub/issues">Report issues</a>
+        </p>
+        <div class="lh-course-tools" id="lh-course-tools" aria-label="Track browser">
+          <div class="lh-track-mode-root" id="lh-track-mode-root" hidden>
+            <div class="lh-track-mode-switch" role="group" aria-label="Track browser mode">
+              <button type="button" class="lh-track-mode-seg lh-track-mode-seg--active" id="lh-mode-all-tracks" aria-pressed="true">
+                All tracks
+              </button>
+              <button type="button" class="lh-track-mode-seg" id="lh-mode-techplus-ws" aria-pressed="false">
+                Tech+ workspace
+              </button>
+            </div>
+          </div>
+          <div class="lh-track-picker" id="lh-track-picker">
+            <button
+              type="button"
+              class="lh-track-picker-toggle"
+              id="lh-track-picker-toggle"
+              aria-expanded="false"
+              aria-controls="course-pills"
+              title="Open or close the track menu"
+            >
+              <span class="lh-track-picker-toggle-label" id="lh-track-picker-toggle-label">Tracks</span>
+              <span class="lh-track-picker-toggle-chev" aria-hidden="true">▾</span>
+            </button>
+            <div class="course-pills" id="course-pills"></div>
+          </div>
+        </div>
+        <div class="xp-strip">
+          <div class="xp-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-labelledby="xp-label" id="xp-bar">
+            <div class="xp-fill" id="xp-fill"></div>
+          </div>
+          <div class="xp-label" id="xp-label">Track XP</div>
+        </div>
+      </div>
+      <div class="sidebar-lessons-panel" id="sidebar-lessons-panel">
+        <div class="sidebar-lessons-top">
+          <div class="sidebar-lessons-head"><span class="sidebar-lessons-kicker" id="sidebar-lessons-kicker">Lesson list</span> · <span id="sidebar-track-name">—</span></div>
+          <div class="lh-techplus-org-wrap" id="lh-techplus-org-toggle" hidden>
+            <div class="lh-techplus-org-seg" role="group" aria-label="Group Tech+ lessons">
+              <button type="button" class="lh-techplus-org-btn" id="lh-tp-org-chapters" aria-pressed="false">Chapters</button>
+              <button type="button" class="lh-techplus-org-btn lh-techplus-org-btn--active" id="lh-tp-org-objectives" aria-pressed="true">
+                Objectives
+              </button>
+              <button type="button" class="lh-techplus-org-btn" id="lh-tp-org-questions" aria-pressed="false">Questions</button>
+            </div>
+          </div>
+          <div class="sidebar-filter-wrap">
+            <label class="lh-visually-hidden" for="lesson-filter">Filter lessons by title, objective domain, or keyword</label>
+            <input type="search" id="lesson-filter" class="lesson-filter-input" placeholder="Filter lessons (domain, subnetting, OSI…)" autocomplete="off" spellcheck="false" enterkeyhint="search" title="Examples: VLAN, domain 3, subnetting, DHCP. Press Ctrl+/ to focus." />
+          </div>
+        </div>
+        <nav class="nav-scroll" id="sidebar-lesson-nav" aria-label="Lessons in the selected track"></nav>
+      </div>
+      <details id="lh-sidebar-advanced" class="sidebar-foot lh-sidebar-advanced" open>
+        <summary class="lh-sidebar-advanced-sum">
+          <span class="lh-drawer-sum-long">Docs, display &amp; account</span><span class="lh-drawer-sum-short">More</span>
+        </summary>
+        <div class="lh-sidebar-advanced-inner">
+          <p class="sub lh-sidebar-docs-drawer">
+            <a href="README.md">README</a> · <a href="docs/project/WORKING_COPY.txt">Working copy</a> ·
+            <a href="docs/LEARN_HUB_COMPLETE_REFERENCE.html">Complete reference</a>
+          </p>
+          <div class="lh-sidebar-a11y" role="group" aria-labelledby="lh-a11y-legend">
+            <div class="lh-sidebar-a11y-legend" id="lh-a11y-legend">Display</div>
+            <div class="lh-a11y-inline">
+              <label class="lh-a11y-row">
+                <input type="checkbox" id="lh-a11y-contrast" />
+                <span>Higher contrast</span>
+              </label>
+              <label class="lh-a11y-row">
+                <input type="checkbox" id="lh-a11y-reduce-motion" />
+                <span>Reduce motion</span>
+              </label>
+            </div>
+          </div>
+          <button type="button" id="btn-lh-logout" class="tool ghost">Log out</button>
+          <button type="button" id="btn-reset-all">Reset all saved progress</button>
+        </div>
+      </details>
+    </aside>
+    <script>
+      (function () {
+        function lhSyncSidebarAdvanced() {
+          var d = document.getElementById("lh-sidebar-advanced");
+          if (!d || typeof window.matchMedia !== "function") return;
+          if (window.matchMedia("(max-width: 720px)").matches) d.removeAttribute("open");
+          else d.setAttribute("open", "");
+        }
+        lhSyncSidebarAdvanced();
+        window.addEventListener("resize", lhSyncSidebarAdvanced, { passive: true });
+      })();
+    </script>
+    <div id="lh-nav-backdrop" class="lh-nav-backdrop" hidden aria-hidden="true"></div>
+    <div class="main" id="lh-main">
+      <div class="topbar">
+        <button type="button" class="tool ghost" id="menu-toggle" aria-expanded="false" aria-controls="sidebar" title="Tracks, lessons, docs, account"><span class="lh-menu-icon" aria-hidden="true">☰</span><span class="lh-menu-label"> Menu</span></button>
+        <div class="topbar-mid">
+          <h2 id="lesson-title">Loading…</h2>
+          <div class="topbar-sub">
+            <span id="lh-lesson-place" class="lh-lesson-place"></span>
+          </div>
+        </div>
+        <div class="lh-net-view-switch" id="lh-net-view-switch" hidden role="tablist" aria-label="Lesson layout">
+          <button type="button" role="tab" class="lh-net-view-btn" data-lh-net-view="both" aria-selected="true" title="Practice and notes side by side">
+            <span class="lh-net-view-label">Split</span>
+          </button>
+          <button type="button" role="tab" class="lh-net-view-btn" data-lh-net-view="practice" aria-selected="false" title="Full-width interactive practice">
+            <span class="lh-net-view-label">Practice</span>
+          </button>
+          <button type="button" role="tab" class="lh-net-view-btn" data-lh-net-view="notes" aria-selected="false" title="Full-width lesson notes">
+            <span class="lh-net-view-label">Notes</span>
+          </button>
+        </div>
+        <div class="topbar-account">
+          <div class="lh-user-inline" id="lh-user-line" role="status" aria-live="polite" hidden>
+            <span class="lh-user-chip">
+              <span class="lh-user-chip-dot" aria-hidden="true"></span>
+              <span class="lh-user-chip-name" id="lh-user-label"></span>
+            </span>
+          </div>
+        </div>
+        <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      </div>
+      <div class="content" id="content-grid">
+        <div class="practice-column" id="practice-column">
+          <div class="workspace" id="ws-web">
+          <div class="web-split">
+            <div class="web-editors">
+              <div class="editor-tabs" id="editor-tabs" role="tablist" aria-label="Web lesson editors">
+                <button type="button" role="tab" id="tab-editor-html" data-tab="html" class="active" aria-selected="true" aria-controls="pane-web-html" tabindex="0">HTML</button>
+                <button type="button" role="tab" id="tab-editor-css" data-tab="css" aria-selected="false" aria-controls="pane-web-css" tabindex="-1">CSS</button>
+                <button type="button" role="tab" id="tab-editor-js" data-tab="js" aria-selected="false" aria-controls="pane-web-js" tabindex="-1">JavaScript</button>
+              </div>
+              <div class="web-ta-wrap active" data-pane="html" id="pane-web-html" role="tabpanel" aria-labelledby="tab-editor-html"><textarea id="web-html" spellcheck="false" aria-label="HTML"></textarea></div>
+              <div class="web-ta-wrap" data-pane="css" id="pane-web-css" role="tabpanel" aria-labelledby="tab-editor-css"><textarea id="web-css" spellcheck="false" aria-label="CSS"></textarea></div>
+              <div class="web-ta-wrap" data-pane="js" id="pane-web-js" role="tabpanel" aria-labelledby="tab-editor-js"><textarea id="web-js" spellcheck="false" aria-label="JavaScript"></textarea></div>
+            </div>
+            <div class="web-preview">
+              <div class="panel-head"><span>Result</span><span id="web-status" aria-live="polite">—</span></div>
+              <div class="web-preview-body">
+                <p class="web-preview-hint" id="web-preview-hint">
+                  Your page renders here. Edit HTML, CSS, or JavaScript above, then press <strong>Run</strong> (or Ctrl+Enter).
+                </p>
+                <iframe id="web-iframe" title="Preview" sandbox="allow-scripts"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="workspace hidden" id="ws-py">
+          <div class="panel-head panel-head--with-hints">
+            <span class="panel-head-title">Python 3</span>
+            <div class="lh-kbd-hints lh-kbd-hints--compact" role="note" aria-label="Python editor shortcuts">
+              <span class="lh-kbd-hint"><kbd>Ctrl</kbd><span class="lh-kbd-plus">+</span><kbd>Enter</kbd> <span class="lh-kbd-verb">run</span></span>
+              <span class="lh-kbd-sep" aria-hidden="true">·</span>
+              <span class="lh-kbd-hint"><kbd>Shift</kbd><span class="lh-kbd-plus">+</span><kbd>Ctrl</kbd><span class="lh-kbd-plus">+</span><kbd>Enter</kbd> <span class="lh-kbd-verb">check</span></span>
+              <span class="lh-kbd-sep lh-kbd-sep--wide" aria-hidden="true">·</span>
+              <span class="lh-kbd-meta">First run downloads runtime (~10–20 MB)</span>
+            </div>
+          </div>
+          <div id="py-load-note" class="py-loading"></div>
+          <textarea id="py-input" spellcheck="false"></textarea>
+          <div class="panel-head"><span>Output</span><span id="py-status" aria-live="polite">—</span></div>
+          <pre id="py-output"></pre>
+        </div>
+        <div class="workspace hidden" id="ws-sql">
+          <div class="panel-head panel-head--with-hints">
+            <span class="panel-head-title">Your SQL</span>
+            <div class="lh-kbd-hints" role="note" aria-label="SQL editor keyboard shortcuts">
+              <span class="lh-kbd-hint"><kbd>Ctrl</kbd><span class="lh-kbd-plus">+</span><kbd>Enter</kbd> <span class="lh-kbd-verb">runs</span> the query</span>
+              <span class="lh-kbd-sep" aria-hidden="true">·</span>
+              <span class="lh-kbd-hint"><kbd>Shift</kbd><span class="lh-kbd-plus">+</span><kbd>Ctrl</kbd><span class="lh-kbd-plus">+</span><kbd>Enter</kbd> <span class="lh-kbd-verb">checks</span> this step</span>
+            </div>
+          </div>
+          <textarea id="sql-input" spellcheck="false"></textarea>
+          <div class="panel-head"><span>Output</span><span id="sql-status" aria-live="polite">…</span></div>
+          <div id="output"></div>
+        </div>
+        <div class="workspace hidden" id="ws-tech">
+          <div class="panel-head"><span>Check-in</span><span>Quick practice (10–20 or all) · then Check</span></div>
+          <div id="tech-quiz" class="lh-tech-quiz-host" role="group" aria-label="Multiple choice from embedded curriculum"></div>
+          <div class="panel-head" id="tech-feedback-head" hidden><span>Feedback</span><span id="tech-status" aria-live="polite">—</span></div>
+          <div id="tech-feedback" class="lh-tech-feedback" aria-live="polite" hidden></div>
+        </div>
+        <div class="workspace hidden" id="ws-network-interactive">
+          <div class="panel-head panel-head--with-hints">
+            <span class="panel-head-title">Interactive practice</span>
+            <span class="lh-kbd-meta">Match · order · sort · quick checks</span>
+          </div>
+          <div id="lh-network-interactive-host" class="lh-net-interactive-host" role="group" aria-label="Interactive lesson activities"></div>
+        </div>
+        </div>
+        <article class="teach" id="teach">
+          <noscript>
+            <p class="msg err">Turn on JavaScript to use Learn Hub. For SQL-only (same layout as this site’s SQL course), open <a href="../../SQL/index.html">SQL/index.html</a> (under your <code>G:\\</code> drive).</p>
+          </noscript>
+          <div id="teach-boot-placeholder">
+            <h2>Network+ study hub</h2>
+            <p><strong>Notes</strong> (right) hold readings. <strong>Interactive practice</strong> (left) has matching, ordering, and quick-check drills when a lesson includes them. <strong>Check-in</strong> quiz steps use multiple choice — answer on the left, then <strong>Check answers</strong>.</p>
+            <p>Start with <strong>Week 1 · Day 1</strong> in the sidebar, or jump to a domain deep dive. Open <strong>Summer course portal</strong> in the track menu for Packet Tracer labs, flashcards, and the browsable exam bank.</p>
+            <p class="msg info">Sign in with any username, or use <strong>Network</strong> / <strong>Network</strong> to open the summer portal directly.</p>
+          </div>
+        </article>
+      </div>
+      <div class="footer-actions">
+        <div class="footer-actions-start">
+          <div class="footer-learn-actions" id="footer-learn-actions">
+            <button type="button" class="tool primary" id="btn-continue" style="display:none">Continue</button>
+            <button type="button" class="tool ghost" id="btn-skip-chapter" style="display:none" title="Mark this reading done and go to the next lesson">
+              Skip lesson
+            </button>
+          </div>
+          <div id="footer-practice-actions" class="footer-practice-actions" hidden>
+            <div id="footer-btns-web" class="footer-work-btn-group" hidden>
+              <button type="button" class="tool primary" id="btn-web-run">Run</button>
+              <button type="button" class="tool success" id="btn-web-check">Check</button>
+            </div>
+            <div id="footer-btns-py" class="footer-work-btn-group" hidden>
+              <button type="button" class="tool primary" id="btn-py-run">Run</button>
+              <button type="button" class="tool success" id="btn-py-check">Check</button>
+            </div>
+            <div id="footer-btns-sql" class="footer-work-btn-group" hidden>
+              <button type="button" class="tool primary" id="btn-sql-run">Run</button>
+              <button type="button" class="tool success" id="btn-sql-check">Check</button>
+              <button type="button" class="tool" id="btn-sql-clear">Clear editor</button>
+            </div>
+            <div id="footer-btns-tech" class="footer-work-btn-group" hidden>
+              <button type="button" class="tool success" id="btn-tech-check">Check answers</button>
+            </div>
+          </div>
+        </div>
+        <span class="spacer"></span>
+        <span style="font-size:0.7rem;color:var(--muted)" id="footer-hint"></span>
+      </div>
+    </div>
+  </div>
+  <script>
+    window.addEventListener(
+      "error",
+      function (ev) {
+        var t = ev.target;
+        if (!t || t.tagName !== "SCRIPT" || !t.src) return;
+        var ph = document.getElementById("teach-boot-placeholder");
+        if (ph)
+          ph.insertAdjacentHTML(
+            "beforeend",
+            '<p class="msg err"><strong>Could not load a script file.</strong> Network Edition needs <code>assets/learn-hub-courses.js</code>, <code>learn-hub-network-md.js</code>, <code>learn-hub-network-questions.js</code>, <code>learn-hub-app.js</code>, and the CSS files next to <code>index.html</code>.</p>'
+          );
+      },
+      true
+    );
+  </script>
+  <script src="assets/learn-hub-courses.js?v=netEditionHtn20260612"></script>
+  <script src="assets/learn-hub-network-questions.js?v=netEditionQuestions20260531"></script>
+  <script src="assets/learn-hub-network-md.js?v=netEditionHtn20260612"></script>
+  <script src="assets/learn-hub-network-interactive-data.js?v=netInteractiveData20260531"></script>
+  <script src="assets/learn-hub-network-interactive.js?v=netInteractive20260531"></script>
+  <script src="assets/learn-hub-network-pane.js?v=netPane20260601"></script>
+  <script src="assets/learn-hub-app.js?v=netEditionApp20260612"></script>
+
+
+
+</body>
+</html>

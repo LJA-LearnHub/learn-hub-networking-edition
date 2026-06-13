@@ -1,0 +1,94 @@
+{
+  "name": "learn-hub-network-edition",
+  "version": "1.0.0-network",
+  "description": "Network+ only edition of Learn Hub (N10-009 summer course, domains, 1100+ MCQs).",
+  "author": "Logan_Allenstein",
+  "private": true,
+  "main": "main.js",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "electron .",
+    "icons": "node scripts/generate-build-icons.mjs",
+    "dist": "npm run icons && electron-builder --win nsis",
+    "dist:clean": "electron-builder --win nsis",
+    "dist:mac": "npm run icons && electron-builder --mac dmg",
+    "upload:list": "node scripts/github-upload-paths.mjs",
+    "upload:exe": "node scripts/list-exe-artifacts.mjs",
+    "release:verify": "npm run dist && echo Release artifacts generated in exe-build/",
+    "normalize:techplus": "node scripts/normalize-techplus-markdown.mjs",
+    "build:techplus": "node scripts/build-techplus-from-markdown.mjs",
+    "build:security": "node scripts/build-security-from-markdown.mjs",
+    "build:kali": "node scripts/build-kali-from-markdown.mjs",
+    "emit:kali-slow": "node scripts/emit-kali-slow-curriculum.mjs",
+    "polish:techplus-md": "node scripts/apply-techplus-html-polish.mjs",
+    "validate:techplus-md": "node scripts/validate-techplus-html.mjs",
+    "verify:techplus": "node scripts/audit-techplus-consistency.mjs && node scripts/validate-techplus-html.mjs && node scripts/audit-techplus-segment-foreign-ids.mjs && node scripts/audit-banner-title-sync.mjs",
+    "audit:techplus-md": "node scripts/audit-techplus-markdown-quality.mjs",
+    "qa:techplus": "node scripts/normalize-techplus-markdown.mjs && npm run build:techplus && npm run verify:techplus && npm run audit:techplus-md",
+    "fix:techplus-banners": "node scripts/fix-techplus-source-banner-titles.mjs",
+    "rebuild:techplus": "node scripts/normalize-techplus-markdown.mjs && node scripts/build-techplus-from-markdown.mjs",
+    "restore:techplus-md": "node scripts/restore-techplus-md-from-reference.mjs",
+    "patch:techplus-headings": "node scripts/patch-techplus-h3-boundaries.mjs",
+    "build:network-edition": "node scripts/build-network-edition.mjs"
+  },
+  "devDependencies": {
+    "electron": "^37.2.6",
+    "electron-builder": "^26.0.12",
+    "marked": "^17.0.6",
+    "png-to-ico": "^3.0.1",
+    "png2icons": "^2.0.1",
+    "sharp": "^0.34.5"
+  },
+  "build": {
+    "appId": "com.logan.learnhub",
+    "productName": "Learn Hub Network",
+    "artifactName": "${productName} Setup ${version}.${ext}",
+    "directories": {
+      "output": "exe-build"
+    },
+    "files": [
+      "index.html",
+      "network-secret.html",
+      "build/**/*",
+      "network-space/**/*",
+      "assets/**/*",
+      "docs/**/*",
+      "scripts/**/*",
+      "main.js",
+      "package.json"
+    ],
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        "nsis"
+      ]
+    },
+    "mac": {
+      "icon": "build/icon.icns",
+      "category": "public.app-category.education",
+      "target": [
+        "dmg"
+      ],
+      "artifactName": "${productName}-${version}-mac.${ext}"
+    },
+    "dmg": {
+      "title": "${productName} ${version}"
+    },
+    "nsis": {
+      "shortcutName": "Learn Hub Network",
+      "uninstallDisplayName": "Learn Hub Network"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "LJA-ICSI25",
+        "repo": "learning-hub"
+      }
+    ]
+  },
+  "dependencies": {
+    "electron-updater": "^6.8.3"
+  }
+}

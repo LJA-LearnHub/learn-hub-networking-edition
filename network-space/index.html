@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Network+ Summer Lesson Plan — Learn Hub Network Edition</title>
+  <meta name="description" content="10-week CompTIA Network+ N10-009 summer course with Packet Tracer labs, daily lessons, and exam prep.">
+  <meta name="robots" content="noindex,nofollow">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="lali-base.css">
+  <link rel="stylesheet" href="network-overrides.css">
+</head>
+<body>
+
+<header>
+  <div class="header-badge">CompTIA Network+ · Summer 2026</div>
+  <h1><span class="c">Network</span><span class="plus">+</span> Summer Course</h1>
+  <p class="subtitle">10-week introductory program with Cisco Packet Tracer integration — aligned to <strong>N10-009</strong>. Part of <strong>Learn Hub Network Edition</strong>. Sign in with username and password <strong>Network</strong>, or open from the main hub track menu.</p>
+  <div class="header-stats">
+    <div class="stat"><span class="stat-num">10</span><span class="stat-label">Weeks</span></div>
+    <div class="stat"><span class="stat-num">50</span><span class="stat-label">Lessons</span></div>
+    <div class="stat"><span class="stat-num">9</span><span class="stat-label">PT Labs</span></div>
+    <div class="stat"><span class="stat-num">1147</span><span class="stat-label">Exam Qs</span></div>
+    <div class="stat"><span class="stat-num">N10</span><span class="stat-label">Aligned</span></div>
+  </div>
+</header>
+
+<div class="layout">
+  <nav id="sidebar" aria-label="Course navigation"></nav>
+
+  <main id="main-content">
+
+    <section id="home" class="section active">
+      <div class="section-header">
+        <div class="section-tag">// Course overview</div>
+        <h2>Network+ summer lesson plan</h2>
+        <p>Each week combines classroom lessons, mini quizzes, and Packet Tracer labs. Use the sidebar to jump to any week or practice tools.</p>
+      </div>
+
+      <div class="callout">
+        <div class="callout-icon">🎯</div>
+        <div class="callout-body">
+          <h4>Course goals</h4>
+          <p id="home-goals">Loading…</p>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <h3><span class="icon">🛠️</span> Required tools</h3>
+          <ul id="home-tools"></ul>
+        </div>
+        <div class="card purple">
+          <h3><span class="icon">📋</span> Assessment at a glance</h3>
+          <p><strong>500 points</strong> total — weekly quizzes (90), PT labs (180), midpoint project (75), capstone (100), practice exam (55).</p>
+          <button type="button" class="btn btn-outline btn-sm" style="margin-top:12px" onclick="showSection('grading')">View grading breakdown →</button>
+        </div>
+      </div>
+
+      <div class="section-divider">10 weekly units</div>
+      <div class="home-grid" id="home-grid"></div>
+    </section>
+
+    <section id="schedule" class="section"></section>
+    <section id="domains" class="section"></section>
+    <section id="grading" class="section"></section>
+    <section id="resources" class="section"></section>
+    <section id="pt-tips" class="section"></section>
+
+    <section id="flashcards" class="section">
+      <div class="section-header">
+        <div class="section-tag">// Study tool</div>
+        <h2>Flashcards</h2>
+        <p>High-frequency Network+ terms across all 10 weeks. Click the card to flip.</p>
+      </div>
+      <div class="quiz-filter" id="flash-filters">
+        <button type="button" class="filter-btn active" onclick="filterFlash('all', this)">All weeks</button>
+        <button type="button" class="filter-btn" onclick="filterFlash('week1', this)">Week 1</button>
+        <button type="button" class="filter-btn" onclick="filterFlash('week2', this)">Week 2</button>
+        <button type="button" class="filter-btn" onclick="filterFlash('week4', this)">Week 4</button>
+        <button type="button" class="filter-btn" onclick="filterFlash('week6', this)">Week 6</button>
+        <button type="button" class="filter-btn" onclick="filterFlash('week7', this)">Week 7</button>
+        <button type="button" class="filter-btn" onclick="filterFlash('week9', this)">Week 9</button>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+        <div style="flex:1;min-width:200px">
+          <div style="font-size:0.8rem;color:var(--text3);margin-bottom:4px;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:1px">Progress</div>
+          <div class="progress-bar-wrap" style="width:100%;max-width:320px;height:8px;background:var(--bg);border-radius:4px;overflow:hidden">
+            <div id="flash-progress" style="display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent4));transition:width 0.3s"></div>
+          </div>
+        </div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:var(--text3)" id="flash-stats">0 of 0 seen</div>
+        <button type="button" class="btn btn-ghost btn-sm" onclick="shuffleFlash()">🔀 Shuffle</button>
+        <button type="button" class="btn btn-outline btn-sm" onclick="resetFlash()">↺ Reset</button>
+      </div>
+      <div class="flashcard-container">
+        <div class="flashcard" id="flashcard" onclick="flipCard()">
+          <div class="card-face front">
+            <div class="card-label">Term</div>
+            <div class="card-content" id="flash-front">Loading…</div>
+          </div>
+          <div class="card-face back">
+            <div class="card-label">Definition</div>
+            <div class="card-content" id="flash-back"></div>
+          </div>
+        </div>
+      </div>
+      <div class="flashcard-nav">
+        <button type="button" class="btn btn-ghost" onclick="prevFlash()">← Prev</button>
+        <span class="flash-counter" id="flash-counter">- / -</span>
+        <button type="button" class="btn btn-ghost" onclick="nextFlash()">Next →</button>
+      </div>
+    </section>
+
+    <section id="quiz" class="section">
+      <div class="section-header">
+        <div class="section-tag">// Practice</div>
+        <h2>Practice quiz</h2>
+        <p>15 questions spanning OSI, addressing, VLANs, routing, services, security, wireless, and troubleshooting.</p>
+      </div>
+      <div id="quiz-area"></div>
+    </section>
+
+    <section id="n10-exam-questions" class="section">
+      <div class="section-header">
+        <div class="section-tag">// Exam prep</div>
+        <h2>N10-009 practice question bank</h2>
+        <p>Browse all practice questions with show/hide answers. Search by number or keyword.</p>
+        <p id="n10-exam-meta" class="n10-exam-meta"></p>
+      </div>
+      <div class="n10-exam-toolbar">
+        <input type="search" id="n10-exam-search" class="n10-exam-search" placeholder="Search question text or number…" aria-label="Search questions"/>
+      </div>
+      <div id="n10-exam-mount"></div>
+    </section>
+
+  </main>
+</div>
+
+<script src="n10-exam-bank.js"></script>
+<script src="lesson-data.js"></script>
+<script src="lessons/week-01.js"></script>
+<script src="lessons/week-02.js"></script>
+<script src="lessons/week-03.js"></script>
+<script src="lessons/week-04.js"></script>
+<script src="lessons/week-05.js"></script>
+<script src="lessons/week-06.js"></script>
+<script src="lessons/week-07.js"></script>
+<script src="lessons/week-08.js"></script>
+<script src="lessons/week-09.js"></script>
+<script src="lessons/week-10.js"></script>
+<script src="lessons/reference.js"></script>
+<script src="n10-exam-ui.js"></script>
+<script src="app.js"></script>
+<script>
+  (function () {
+    const D = window.NETPLUS_SUMMER;
+    if (!D) return;
+    const goals = document.getElementById("home-goals");
+    if (goals) goals.innerHTML = "<ul>" + D.goals.map((g) => "<li>" + g + "</li>").join("") + "</ul>";
+    const tools = document.getElementById("home-tools");
+    if (tools) tools.innerHTML = D.tools.map((t) => "<li>" + t + "</li>").join("").replace(/–/g, "—");
+  })();
+</script>
+</body>
+</html>

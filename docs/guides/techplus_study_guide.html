@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Logan's post test review</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #030508;
+      --bg2: #07111b;
+      --card: #111d2c;
+      --border: #253a52;
+      --text: #e7eef8;
+      --muted: #9eb0c5;
+      --muted2: #6f849c;
+      --accent: #3bbcff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+      color: var(--text);
+      font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
+      line-height: 1.55;
+    }
+    .wrap {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 24px 18px 56px;
+    }
+    .top {
+      margin-bottom: 16px;
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--card);
+      box-shadow: 0 10px 24px rgba(1, 8, 18, 0.4);
+    }
+    .top h1 { margin: 0 0 8px; font-size: 1.35rem; }
+    .top p { margin: 0; color: var(--muted); font-size: 0.92rem; }
+    .back-link {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: rgba(59, 188, 255, 0.08);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .back-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(59, 188, 255, 0.14);
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 16px;
+      align-items: start;
+    }
+    .sidebar {
+      position: sticky;
+      top: 16px;
+      max-height: calc(100vh - 32px);
+      overflow: auto;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--card);
+      padding: 12px;
+      box-shadow: 0 10px 24px rgba(1, 8, 18, 0.35);
+    }
+    .sidebar h2 {
+      margin: 0 0 8px;
+      font-size: 0.78rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted2);
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+    }
+    .topic-filter {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: #0a1420;
+      color: var(--text);
+      font-size: 0.86rem;
+      font-family: "Space Grotesk", system-ui, sans-serif;
+    }
+    .topic-filter:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    #topic-list {
+      display: grid;
+      gap: 6px;
+    }
+    .topic-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 9px;
+      border-radius: 8px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.84rem;
+      line-height: 1.35;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+    }
+    .topic-link:hover {
+      color: var(--text);
+      border-color: var(--border);
+      background: rgba(59, 188, 255, 0.08);
+    }
+    .topic-idx {
+      width: 20px;
+      flex-shrink: 0;
+      text-align: center;
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-size: 0.72rem;
+      color: var(--muted2);
+    }
+    .topic-text {
+      flex: 1;
+      min-width: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .topic-tag {
+      flex-shrink: 0;
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid rgba(59, 188, 255, 0.35);
+      border-radius: 999px;
+      padding: 1px 6px;
+      background: rgba(59, 188, 255, 0.08);
+    }
+    #study-render {
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--card);
+      overflow-x: auto;
+      box-shadow: 0 10px 24px rgba(1, 8, 18, 0.35);
+    }
+    #study-render h1, #study-render h2, #study-render h3 { scroll-margin-top: 20px; }
+    #study-render h2 {
+      margin-top: 1.4rem;
+      padding-bottom: 0.25rem;
+      border-bottom: 1px solid var(--border);
+      font-size: 1.35rem;
+    }
+    #study-render h3 { margin-top: 1.1rem; font-size: 1.1rem; }
+    #study-render p, #study-render li { color: var(--muted); }
+    #study-render code { color: #9ad7ff; }
+    a { color: var(--accent); }
+    table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+    th, td { border: 1px solid var(--border); padding: 8px 10px; vertical-align: top; }
+    th { text-align: left; background: rgba(59, 188, 255, 0.1); }
+    code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    pre {
+      background: #0a1420;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px;
+      overflow-x: auto;
+    }
+    @media (max-width: 980px) {
+      .layout { grid-template-columns: 1fr; }
+      .sidebar {
+        position: static;
+        max-height: none;
+      }
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <h1>Logan's post test review</h1>
+      <p>This page renders <code>techplus_study_guide.md</code> into readable HTML for Learn Hub Tech+.</p>
+      <a class="back-link" href="../../index.html">← Back to Learn Hub</a>
+    </div>
+    <div class="layout">
+      <aside class="sidebar" aria-label="Topics">
+        <h2>Topics</h2>
+        <input id="topic-filter" class="topic-filter" type="search" placeholder="Filter topics..." />
+        <nav id="topic-list" aria-label="Guide sections"></nav>
+      </aside>
+      <article id="study-render" aria-live="polite">Loading post-test review guide…</article>
+    </div>
+  </div>
+  <script>
+    (async function () {
+      const host = document.getElementById("study-render");
+      const topicList = document.getElementById("topic-list");
+      const topicFilter = document.getElementById("topic-filter");
+      function slugify(text) {
+        return String(text || "")
+          .toLowerCase()
+          .replace(/[^a-z0-9\s-]/g, "")
+          .trim()
+          .replace(/\s+/g, "-");
+      }
+      function buildSidebar() {
+        const headings = host.querySelectorAll("h2, h3");
+        topicList.innerHTML = "";
+        headings.forEach((h, idx) => {
+          if (!h.id) h.id = slugify(h.textContent) || `topic-${idx + 1}`;
+          const a = document.createElement("a");
+          a.href = `#${h.id}`;
+          a.className = "topic-link";
+          a.dataset.level = h.tagName.toLowerCase();
+          a.innerHTML =
+            `<span class="topic-idx">${idx + 1}</span>` +
+            `<span class="topic-text">${h.textContent}</span>` +
+            `<span class="topic-tag">${h.tagName}</span>`;
+          topicList.appendChild(a);
+        });
+      }
+      try {
+        const resp = await fetch("../../techplus_study_guide.md", { cache: "no-store" });
+        if (!resp.ok) throw new Error("Failed to load techplus_study_guide.md");
+        const md = await resp.text();
+        host.innerHTML = marked.parse(md);
+        buildSidebar();
+        topicFilter.addEventListener("input", () => {
+          const q = topicFilter.value.trim().toLowerCase();
+          topicList.querySelectorAll(".topic-link").forEach((el) => {
+            const t = (el.querySelector(".topic-text")?.textContent || "").toLowerCase();
+            el.style.display = !q || t.includes(q) ? "" : "none";
+          });
+        });
+      } catch (_) {
+        host.innerHTML = "<p>Could not load <code>techplus_study_guide.md</code>. Keep it in the same folder as this file.</p>";
+        topicList.innerHTML = "";
+      }
+    })();
+  </script>
+</body>
+</html>

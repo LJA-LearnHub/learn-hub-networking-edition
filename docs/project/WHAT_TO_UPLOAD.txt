@@ -1,0 +1,83 @@
+Learn Hub upload checklist (source + release)
+============================================
+
+Repository root for this checklist:
+  update_v1.0.7/
+
+SOURCE REPO (GitHub) — INCLUDE
+------------------------------
+
+Core app:
+  index.html
+  main.js
+  study-secret.html
+  network-secret.html
+  package.json
+  package-lock.json
+  README.md
+  docs/project/WORKING_COPY.txt
+  docs/project/PATHS_FOR_GITHUB.txt
+  docs/project/WHAT_TO_UPLOAD.txt
+
+Folders to commit:
+  assets/
+  build/
+  docs/
+  scripts/
+  study-space/
+  network-space/
+  network-space/NetworkPlus_SummerLessons.md
+  tech-plus-exam/
+  chapters/                      (if present in this copy)
+
+Guide content:
+  Study.md
+  techplus_study_guide.md
+  docs/guides/Study.html
+  docs/guides/techplus_study_guide.html
+
+
+SOURCE REPO (GitHub) — EXCLUDE
+------------------------------
+
+Do not commit:
+  node_modules/
+  exe-build/
+  exe-build-fresh/
+  dist/
+  *.exe
+  *.msi
+  *.blockmap
+  *.zip
+
+
+RELEASE ARTIFACTS (outside source repo)
+---------------------------------------
+
+Build:
+  npm install
+  npm run dist
+
+Share from:
+  exe-build/Learn Hub Setup <version>.exe
+
+Optional companion artifact:
+  exe-build/*.blockmap
+
+
+PRE-PUSH QUICK CHECK
+--------------------
+
+1) Verify app starts:
+   - browser: open index.html via local server
+   - desktop: npm start
+
+2) Verify docs links:
+   - Tech+ lesson "Complete FC0-U71 Study Guide" opens docs/guides/Study.html
+   - Tech+ lesson "Logan's post test review" opens docs/guides/techplus_study_guide.html
+
+3) Verify generated bundles exist:
+   - assets/learn-hub-courses.js
+   - assets/learn-hub-app.js
+   - assets/learn-hub-techplus-md.js (+ chapter chunks if used)
+

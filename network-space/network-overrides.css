@@ -1,0 +1,260 @@
+/* Network+ summer — accent tweaks on top of lali-base */
+:root {
+  --accent: #22d3ee;
+  --glow: rgba(34, 211, 238, 0.16);
+}
+
+header h1 span.c { color: #22d3ee; }
+header h1 span.plus { color: #38bdf8; }
+
+.stat-num { color: #22d3ee; }
+
+/* Daily lesson reader */
+.lesson-nav-hint {
+  color: var(--text2);
+  font-size: 0.9rem;
+  margin: 0 0 14px;
+}
+
+.lesson-day-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.day-tab {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.72rem;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--card2);
+  color: var(--text2);
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+  text-align: left;
+  max-width: 100%;
+}
+
+.day-tab:hover {
+  border-color: rgba(34, 211, 238, 0.45);
+  color: var(--text);
+}
+
+.day-tab.active {
+  border-color: #22d3ee;
+  color: #22d3ee;
+  background: rgba(34, 211, 238, 0.08);
+}
+
+.lesson-reading-pane {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 20px 24px;
+  max-height: min(72vh, 900px);
+  overflow-y: auto;
+}
+
+.lesson-prose {
+  color: var(--text2);
+  line-height: 1.65;
+  font-size: 0.95rem;
+}
+
+.lesson-prose .lesson-inline-header {
+  margin-bottom: 1.25rem;
+}
+
+.lesson-prose .lesson-badge {
+  display: inline-block;
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #22d3ee;
+  margin-bottom: 8px;
+}
+
+.lesson-prose .lesson-title {
+  font-size: 1.35rem;
+  color: var(--text);
+  margin: 0;
+}
+
+.lesson-prose h2,
+.lesson-prose h3,
+.lesson-prose h4 {
+  color: var(--text);
+  margin: 1.5em 0 0.6em;
+}
+
+.lesson-prose h2 { font-size: 1.15rem; }
+.lesson-prose h3 { font-size: 1.05rem; }
+
+.lesson-prose p,
+.lesson-prose li {
+  margin-bottom: 0.65em;
+}
+
+.lesson-prose ul,
+.lesson-prose ol {
+  padding-left: 1.35em;
+  margin-bottom: 1em;
+}
+
+.lesson-prose hr,
+.lesson-prose .lesson-hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 1.5em 0;
+}
+
+.lesson-prose .lesson-expand {
+  margin-top: 1em;
+  padding-top: 0.5em;
+}
+
+.lesson-prose .callout-inline.tip {
+  border-left: 3px solid #22d3ee;
+  padding: 10px 14px;
+  margin: 1em 0;
+  background: rgba(34, 211, 238, 0.06);
+  border-radius: 0 8px 8px 0;
+}
+
+.lesson-prose pre.code-block {
+  margin: 1em 0;
+  overflow-x: auto;
+}
+
+.lesson-prose table.data-table {
+  margin: 1em 0;
+  font-size: 0.88rem;
+}
+
+.lesson-prose table.data-table.compact td,
+.lesson-prose table.data-table.compact th {
+  padding: 6px 10px;
+}
+
+.lesson-prose code {
+  font-family: var(--font-mono, "Fira Code", monospace);
+  font-size: 0.88em;
+  color: #7dd3fc;
+}
+
+/* N10-009 exam question bank (lali-style browse) */
+#n10-exam-questions .n10-exam-meta {
+  font-size: 0.85rem;
+  color: var(--text3);
+  margin-top: 8px;
+}
+#n10-exam-questions .n10-exam-toolbar {
+  margin-bottom: 12px;
+}
+#n10-exam-questions .n10-exam-search {
+  width: 100%;
+  max-width: 420px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  font-family: inherit;
+}
+#n10-exam-questions .n10-exam-filters {
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+#n10-exam-questions .all-exam-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+#n10-exam-questions .exam-row {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+#n10-exam-questions .exam-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+#n10-exam-questions .exam-top h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-family: "JetBrains Mono", monospace;
+}
+#n10-exam-questions .topic-badge {
+  font-size: 0.72rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(56, 189, 248, 0.15);
+  color: #7dd3fc;
+  white-space: nowrap;
+}
+#n10-exam-questions .exam-img img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 8px 0;
+}
+#n10-exam-questions .mc-option {
+  list-style: none;
+  padding: 10px 12px;
+  margin: 6px 0;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+#n10-exam-questions .mc-option.correct {
+  border-color: #22c55e;
+  background: rgba(34, 197, 94, 0.12);
+}
+#n10-exam-questions .mc-option.wrong {
+  opacity: 0.55;
+}
+#n10-exam-questions .mc-question > button {
+  margin-top: 12px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+  font-family: inherit;
+}
+#n10-exam-questions .n10-pager {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 16px 0;
+  flex-wrap: wrap;
+}
+#n10-exam-questions .n10-pager-label {
+  font-size: 0.85rem;
+  color: var(--text3);
+  font-family: "JetBrains Mono", monospace;
+}
+
+@media (max-width: 900px) {
+  .layout { flex-direction: column; }
+  nav#sidebar {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    max-height: 40vh;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .lesson-day-nav { flex-direction: column; }
+  .day-tab { width: 100%; }
+  .lesson-reading-pane { max-height: none; }
+}
