@@ -1,0 +1,757 @@
+{
+  "id": "tech-voucher-test-03",
+  "title": "Tech+ Voucher Test 03",
+  "source": "Tech+ Voucher 03 Test _ Wayground Questions.pdf",
+  "questions": [
+    {
+      "q": "Which notational system is the given number A3F5 a valid representation of?",
+      "choices": [
+        "Hexadecimal",
+        "Binary",
+        "Unicode",
+        "Decimal"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which unit of measurement is MOST commonly used to describe the storage capacity of a standard consumer hard drive today?",
+      "choices": [
+        "Gigabyte (GB)",
+        "Kilobyte (KB)",
+        "Petabyte (PB)",
+        "Megabyte (MB)"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Sasha types a command into a terminal, the computer executes it, and the results appear on her screen. Which functions are demonstrated?",
+      "choices": [
+        "Input, Processing, and Output",
+        "Output and Processing",
+        "Input, Output, and Storage",
+        "Input, Processing, and Storage"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "What is the final step in the standard troubleshooting methodology?",
+      "choices": [
+        "Document findings, lessons learned, actions, and outcomes",
+        "Test the theory to determine the cause",
+        "Implement the solution",
+        "Establish a plan of action"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "A video editor is complaining that their workstation takes a long time to \"render\" or process a video file. To improve the speed at which the computer performs these internal calculations, which component's speed (measured in GHz) should be upgraded?",
+      "choices": [
+        "CPU",
+        "RAM",
+        "SSD",
+        "NIC"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "A customer calls saying they can no longer access the company's internal website. You ask, \"Have you recently installed any new software or changed any settings?\" Which part of the troubleshooting methodology are you currently performing?",
+      "choices": [
+        "Identify the problem",
+        "Establish a theory of probable cause",
+        "Verify full system functionality",
+        "Document findings and outcomes"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Which unit of measurement is most appropriate for evaluating the backbone network of an enterprise-level data center?",
+      "choices": [
+        "Gigabits per second (Gbps)",
+        "Megabits per second (Mbps)",
+        "Bits per second (bps)",
+        "Kilobits per second (Kbps)"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "A warehouse manager wants to use a device that can quickly scan barcodes into a database. Which type of device is required for this task?",
+      "choices": [
+        "Input device",
+        "Output device",
+        "Storage device",
+        "Processing device"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "A photographer needs to back up high-resolution images to a physical disc to mail to a client who does not have reliable internet. The photographer uses a drive that writes data to the disc using a precise laser. Which type of storage technology is being utilized?",
+      "choices": [
+        "Optical storage",
+        "Solid state drive",
+        "Flash drive",
+        "NAS"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Ella wants to control her smart home devices through voice commands. Which device is designed for this?",
+      "choices": [
+        "Home assistant",
+        "IP security camera",
+        "Virtual reality system",
+        "Augmented reality system"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "A student is building a custom PC. They have laid out the case and are now installing the large, central printed circuit board that provides the electrical connections and \"bus\" lines for the CPU, RAM, and storage to communicate. Which component are they installing?",
+      "choices": [
+        "Motherboard",
+        "BIOS",
+        "Power Supply",
+        "Cooling Fan"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "A small office has five computers that need to share files locally. To ensure that data packets are sent directly to the specific computer they are intended for (rather than broadcasting to everyone), the admin installs a device that uses MAC addresses to direct traffic. What is this device?",
+      "choices": [
+        "Switch",
+        "Router",
+        "Modem",
+        "Access Point"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which identifier is unique to each network device and cannot be changed?",
+      "choices": [
+        "MAC address",
+        "IP address",
+        "Network name",
+        "Serial number"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which technology allows content to be sent to a TV while allowing the source device to perform other tasks?",
+      "choices": [
+        "Casting",
+        "Mirroring",
+        "Extending",
+        "Bluetooth tethering"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which cloud model combines on-premises infrastructure with cloud resources?",
+      "choices": [
+        "Hybrid",
+        "On-premises",
+        "Multi-cloud",
+        "Public Cloud"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which WIFI standard that supports all three frequency bands (2.4 GHz, 5 GHz, and 6 GHz) ?",
+      "choices": [
+        "802.11ax",
+        "802.11ac",
+        "802.11b",
+        "802.11"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which device modulates digital signals for transmission over phone lines?",
+      "choices": [
+        "Modem",
+        "Router",
+        "Switch",
+        "Firewall"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "A technician is running a long data cable through a wall to connect a desktop to a wall jack. They notice the cable has eight small copper wires inside and requires a plastic \"clip-in\" connector to snap into the computer's network port. Which connector must they use?",
+      "choices": [
+        "RJ-45",
+        "RJ-11",
+        "HDMI",
+        "USB-C"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which storage type is volatile?",
+      "choices": [
+        "RAM",
+        "SSD",
+        "HDD",
+        "Flash drive"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which tool is used to attach an RJ45 connector to an Ethernet cable?",
+      "choices": [
+        "Crimper",
+        "Cable tester",
+        "Wire stripper",
+        "Multimeter"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "What does DSL stand for?",
+      "choices": [
+        "Digital Subscriber Line",
+        "Digital System Link",
+        "Direct Satellite Link",
+        "Dual Simultaneous Link"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "What is the primary role of an Access Point (AP)?",
+      "choices": [
+        "Establishing a wireless network for devices",
+        "Routing traffic between different networks",
+        "Providing a security barrier",
+        "Sharing a single IP address with many devices"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which device serves as an intermediary for delivering services over a network?",
+      "choices": [
+        "Server",
+        "Tablet",
+        "Smartphone",
+        "Repeater hub"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which technology is commonly used for contactless mobile payments?",
+      "choices": [
+        "NFC",
+        "Bluetooth",
+        "Wi-Fi",
+        "Thunderbolt"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "A graphic designer is complaining that their computer \"stutters\" when editing high-resolution 4K video files. Which internal component should be upgraded to specifically handle the math-heavy demands of rendering video and graphics?",
+      "choices": [
+        "GPU",
+        "NIC",
+        "CMOS Battery",
+        "PSU"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which tool tests electrical connections in a cable to ensure they are functioning?",
+      "choices": [
+        "Cable tester",
+        "Punch down tool",
+        "Spectrum analyzer",
+        "Wire stripper"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "After upgrading to a new high-end graphics card, a gamer finds that their Windows OS does not recognize the hardware and the screen resolution is stuck at a low setting. Which type of software does the gamer need to install to allow the OS and hardware to communicate?",
+      "choices": [
+        "Drivers",
+        "Firmware",
+        "File system",
+        "Utility suite"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which tool allows an IT professional to interact with a user's computer from a remote location?",
+      "choices": [
+        "Desktop sharing tool",
+        "Database management system",
+        "Network monitoring software",
+        "Content management system"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which software type is used for sharing and collaboratively editing files in the cloud?",
+      "choices": [
+        "Document sharing software",
+        "Word processing software",
+        "Database software",
+        "Accounting software"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "What software type is designed to handle invoicing, payroll, and financial reporting?",
+      "choices": [
+        "Accounting software",
+        "Presentation software",
+        "Web browser",
+        "Spreadsheet software"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "A user notices that their computer starts running very slowly when they open 20 different browser tabs at once. The Operating System is struggling to track which applications are currently using the system's available \"short-term\" memory. Which OS function is failing to keep up?",
+      "choices": [
+        "Memory management",
+        "Disk management",
+        "Access control",
+        "Driver signing"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "A student is doing research and wants to ensure that their browsing history and cookies are not saved on a public library computer after they close the browser. Which feature should they use?",
+      "choices": [
+        "Private browsing / Incognito mode",
+        "Profile synchronization",
+        "Pop-up blocker",
+        "Proxy settings"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which browser feature ensures consistent settings and bookmarks across multiple devices?",
+      "choices": [
+        "Profile synchronization",
+        "Password management",
+        "Default search engine",
+        "Private browsing"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "A teacher needs to calculate the average grade for 100 students and create a bar chart of the results. The data is currently organized in a grid of letters and numbers. Which software application is BEST suited for this math-heavy task?",
+      "choices": [
+        "Spreadsheet software",
+        "Word processing software",
+        "Conferencing software",
+        "Visual diagramming software"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which application would be appropriate for Generative AI?",
+      "choices": [
+        "Producing automated financial reports from data",
+        "Error detection in software code",
+        "Automating data entry",
+        "Improving physical robot movement"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "What should an IT manager check to ensure a web connection is secured via SSL/TLS?",
+      "choices": [
+        "Valid certificates",
+        "Enabled add-ons",
+        "Browser cache",
+        "Client-side scripting"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Ted keeps seeing an old version of a website despite refreshing. What should he clear?",
+      "choices": [
+        "Browser cache",
+        "Pop-up blocker",
+        "Extensions",
+        "History"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which software type allows you to express ideas graphically using shapes and connectors?",
+      "choices": [
+        "Visual diagramming software",
+        "Instant messaging",
+        "Email client",
+        "Business-specific apps"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which OS component manages the reading and writing of data to a hard drive?",
+      "choices": [
+        "Disk management",
+        "Process scheduling",
+        "Firmware",
+        "Memory management"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "What is the primary purpose of collaboration software?",
+      "choices": [
+        "To enable real-time teamwork through messaging and file sharing",
+        "To manage hardware components and disk writing",
+        "To clear browser cache and history",
+        "To verify digital certificates for SSL/TLS"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which logic structure executes code as long as a condition is true?",
+      "choices": [
+        "While Loop",
+        "If-Else Statement",
+        "Constant",
+        "Function"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "What is the purpose of an API (Application Programming Interface)?",
+      "choices": [
+        "To allow two different applications to communicate",
+        "To provide a graphical interface for users",
+        "To manage hardware resources",
+        "To encrypt data"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which of the following is a reusable container for code that performs a specific task?",
+      "choices": [
+        "Function",
+        "Variable",
+        "Constant",
+        "Boolean"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "What data type represents a single true or false value?",
+      "choices": [
+        "Boolean",
+        "Integer",
+        "Float",
+        "String"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "In programming, what is a \"variable\"?",
+      "choices": [
+        "A storage location for data that can change during execution",
+        "A value that remains the same throughout the program",
+        "A specialized software driver",
+        "A hardware component"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "What type of language is Python?",
+      "choices": [
+        "Interpreted",
+        "Compiled",
+        "Assembly",
+        "Machine Code"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which concept involves breaking a complex problem into smaller, manageable parts?",
+      "choices": [
+        "Deconstruction / Divide and Conquer",
+        "Looping",
+        "Cable Labeling",
+        "Screen Resolution"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "What is a \"Constant\" in programming?",
+      "choices": [
+        "A value that does not change during program execution",
+        "A repetitive loop structure",
+        "A type of user interface",
+        "A connection to a database"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which of the following is an example of a String data type?",
+      "choices": [
+        "\"Hello World\"",
+        "42",
+        "3.14",
+        "True"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "What is the purpose of comments in code?",
+      "choices": [
+        "To explain why a line exists for human readers",
+        "To be executed by the CPU",
+        "To define a new variable",
+        "To speed up execution"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "An HR manager wants to find a list of all employees who have worked at the company for more than five years. They use a specific command to \"ask\" the database for this specific filtered information. What is this action called?",
+      "choices": [
+        "Query",
+        "Schema update",
+        "Data entry",
+        "Relational link"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "What type of data is characterized by being extremely large, fast-moving, and complex?",
+      "choices": [
+        "Big data",
+        "Flat data",
+        "Small data",
+        "Meta data"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which database type is best for simple name and ID lists without complex relationships?",
+      "choices": [
+        "Flat file",
+        "Relational",
+        "Object-oriented",
+        "Schema-less"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "What stores the blueprint or structure of a database?",
+      "choices": [
+        "Schema",
+        "Table",
+        "Query",
+        "Key"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "In a relational database, what uniquely identifies each record in a table?",
+      "choices": [
+        "Primary Key",
+        "Foreign Key",
+        "Schema",
+        "Field"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which of the following is \"data about data,\" such as the date a file was created?",
+      "choices": [
+        "Metadata",
+        "Big data",
+        "Raw data",
+        "Structured data"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "A developer is writing a script to pull customer names from a database. To ensure the script works with almost any modern relational database (like MySQL or SQL Server), they should use which standard programming language?",
+      "choices": [
+        "SQL",
+        "HTML",
+        "JavaScript",
+        "Python"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "What is the purpose of a \"Foreign Key\"?",
+      "choices": [
+        "To link two tables together",
+        "To uniquely identify a row in its own table",
+        "To encrypt the database",
+        "To create a new database"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which database structure organizes data into rows and columns?",
+      "choices": [
+        "Relational",
+        "Non-relational",
+        "Key-value pair",
+        "Document-based"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "An online store needs to ensure that when a customer changes their address, it updates across all orders and shipping labels automatically. Which database concept ensures this consistency?",
+      "choices": [
+        "Relational database",
+        "Flat-file database",
+        "Metadata tag",
+        "CSV export"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Why is it recommended to enforce a password expiration policy?",
+      "choices": [
+        "To limit the time a stolen password can be used",
+        "To simplify account management",
+        "To increase IT support tickets",
+        "To ensure passwords become more complex"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "A user accidentally clicks a suspicious link and notices that new, unknown icons are appearing on their desktop and files are disappearing. Which security tool should be run immediately to identify and quarantine the malicious files?",
+      "choices": [
+        "Antivirus / Anti-malware",
+        "Firewall",
+        "Data encryption",
+        "Multi-factor authentication"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "What is the most effective strategy for securing a small business wireless network for internal and guest users?",
+      "choices": [
+        "Create separate SSIDs for internal and guest users",
+        "Use the same SSID for everyone",
+        "Disable SSID broadcasting",
+        "Use WEP encryption"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which of the following is a \"corrective\" control?",
+      "choices": [
+        "Restoring backups after a ransomware attack",
+        "Putting up a \"No Trespassing\" sign",
+        "Installing a motion sensor",
+        "Writing a security policy"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "What does the \"A\" in the CIA triad stand for?",
+      "choices": [
+        "Availability",
+        "Authentication",
+        "Authorization",
+        "Accounting"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which of the following involves manipulating people into giving up confidential information?",
+      "choices": [
+        "Social Engineering",
+        "Wiretapping",
+        "Eavesdropping",
+        "Snooping"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "What is the purpose of Multi-Factor Authentication (MFA)?",
+      "choices": [
+        "To require more than one form of evidence to verify identity",
+        "To allow users to use many different passwords",
+        "To speed up the login process",
+        "To bypass the need for a username"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which threat involves encrypting a user's files and demanding payment for the key?",
+      "choices": [
+        "Ransomware",
+        "Trojan Horse",
+        "Spyware",
+        "Adware"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "A small business owner receives an email that looks like it is from their bank, asking them to click a link and \"verify\" their login credentials immediately. What is this an example of?",
+      "choices": [
+        "Phishing",
+        "Ransomware",
+        "Wiretapping",
+        "Tailgating"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which of the following is a physical security control?",
+      "choices": [
+        "A badge reader on a door",
+        "An antivirus software program",
+        "A firewall configuration",
+        "A complex password policy"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which of the following is an example of a physical security control?",
+      "choices": [
+        "A physical lock",
+        "A complex password",
+        "A file encryption system",
+        "A digital certificate"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "What is \"Principle of Least Privilege\"?",
+      "choices": [
+        "Giving users only the access they need to do their job",
+        "Giving all users administrative rights",
+        "Allowing users to choose their own access levels",
+        "Revoking all access after 5:00 PM"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which protocol is used to secure web traffic with SSL/TLS?",
+      "choices": [
+        "HTTPS",
+        "HTTP",
+        "FTP",
+        "SMTP"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "A company wants to prevent unauthorized hackers from the internet from \"knocking\" on their private internal network ports. They install a security barrier at the edge of the network that inspects every incoming packet of data against a set of security rules. What is this barrier?",
+      "choices": [
+        "Firewall",
+        "VPN",
+        "Switch",
+        "Load Balancer"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "The first programs to load into a computer",
+      "choices": [
+        "BIOS",
+        "Operating System",
+        "Microsoft Office",
+        "Printer Drivers"
+      ],
+      "correct": 0
+    }
+  ]
+}

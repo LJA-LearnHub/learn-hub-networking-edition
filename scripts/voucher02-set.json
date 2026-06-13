@@ -1,0 +1,757 @@
+﻿{
+  "id": "tech-voucher-test-02",
+  "title": "Tech+ Voucher Test 02",
+  "source": "Torres Tech+ Voucher 02 2026 _ Wayground.pdf",
+  "questions": [
+    {
+      "q": "When Bert is playing a game on his tablet, he is interacting with what kind of software?",
+      "choices": [
+        "CPU",
+        "UEFI",
+        "Operating system",
+        "Application"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Arrange the following values from smallest to largest: kilobit, byte, megabyte, terabit.",
+      "choices": [
+        "kilobit, byte, terabit, megabyte",
+        "byte, kilobit, megabyte, terabit",
+        "byte, megabyte, terabit, kilobit",
+        "terabit, megabyte, kilobit, byte"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Which of these is a mobile OS?",
+      "choices": [
+        "Windows",
+        "Chrome OS",
+        "iOS",
+        "macOS"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "What is the main drawback to a command-line interface?",
+      "choices": [
+        "Security permissions.",
+        "Difficulty remembering command syntax.",
+        "Must use a mouse.",
+        "Commands take longer."
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Which of these is the best definition of a driver?",
+      "choices": [
+        "An instance of a running program.",
+        "Software that helps the OS communicate with a device.",
+        "A background program.",
+        "A productivity application."
+      ],
+      "correct": 1
+    },
+    {
+      "q": "What number system is used to communicate directly with a CPU?",
+      "choices": [
+        "Binary",
+        "Decimal",
+        "Octal",
+        "Hexadecimal"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which of these uses the correct format to describe the rate at which digital data travels between locations?",
+      "choices": [
+        "Megabits (Mb)",
+        "Megabits per second (Mbps)",
+        "Megahertz (MHz)",
+        "Megabytes (MB)"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "A technician needs to install input devices while setting up a new desktop PC. Which of the following should the technician install?",
+      "choices": [
+        "Keyboard",
+        "Printer",
+        "CPU",
+        "Speaker"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Lorna has finished repairing a laser printer. What is the final step before closing the ticket?",
+      "choices": [
+        "Verify functionality.",
+        "Implement preventive measures.",
+        "Document the solution.",
+        "Escalate the issue."
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Ruth is troubleshooting a software problem, and she is changing and testing one potential solution at a time. Which step of the troubleshooting methodology is she performing?",
+      "choices": [
+        "Identify the problem.",
+        "Establish a theory of probable cause.",
+        "Test the theory to determine the cause.",
+        "Establish a plan of action."
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Which of these is the best definition of a process?",
+      "choices": [
+        "An instance of a running program.",
+        "Smallest unit of execution (thread).",
+        "An application (running or not).",
+        "A background program (service)."
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Lawrence believes he has solved a hardware problem. What must he still do before documenting the solution?",
+      "choices": [
+        "Escalate the issue.",
+        "Test the theory.",
+        "Verify functionality.",
+        "Test the theory to determine the cause."
+      ],
+      "correct": 2
+    },
+    {
+      "q": "All internal components in a computer connect physically to one central component: the ___.",
+      "choices": [
+        "CPU.",
+        "Memory.",
+        "Motherboard.",
+        "SSD."
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Which component must supply adequate electricity to higher-end video cards?",
+      "choices": [
+        "SSD.",
+        "GPU.",
+        "PSU.",
+        "CPU."
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Which type of connector is used to terminate the end of an Ethernet networking cable?",
+      "choices": [
+        "Lightning.",
+        "HDMI.",
+        "RJ-11.",
+        "RJ-45."
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Which of the following display types is bidirectional?",
+      "choices": [
+        "Thunderbolt",
+        "USB-C",
+        "USB-B",
+        "Lightning"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Edgar is setting up a network for a local bakery consisting of six computers and a router. What kind of network is this?",
+      "choices": [
+        "Bluetooth",
+        "IoT",
+        "LAN",
+        "WAN"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Which 802.11 standard has the greatest maximum throughput?",
+      "choices": [
+        "802.11b",
+        "802.11ax",
+        "802.11ac",
+        "802.11a"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Which type of USB port is used on a printer to connect to a computer?",
+      "choices": [
+        "USB-A",
+        "USB-B",
+        "USB Micro-B",
+        "USB-Mini-B"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Inga wants to run both Windows and Linux on one desktop simultaneously and switch quickly. What technology enables this?",
+      "choices": [
+        "NFC",
+        "IaaS",
+        "Virtualization",
+        "Mirroring"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Which type of hypervisor is installed as the computer's physical hardware?",
+      "choices": [
+        "Type 1",
+        "Type 2",
+        "Type A",
+        "Type B"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which of these is volatile storage?",
+      "choices": [
+        "NVMe",
+        "SSD",
+        "ROM",
+        "RAM"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "What kind of storage device uses spinning metal platters and an IDE controller cable?",
+      "choices": [
+        "SSD",
+        "HDD",
+        "Firmware",
+        "Optical disc"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Which wireless connection technology is being used when you pay for a purchase at a store by waving your credit card over a terminal, rather than inserting the card?",
+      "choices": [
+        "Wi-Fi",
+        "Bluetooth",
+        "NFC",
+        "DVI"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Which of the following is the last tool that should be used when creating a custom-length network cable?",
+      "choices": [
+        "Crimper",
+        "Cable Tester",
+        "Wire Cutter",
+        "Ethernet Connector"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Terrence experiences power sags and surges. What device can he install to keep his system running and prevent data loss during power interruptions?",
+      "choices": [
+        "Surge suppressor",
+        "UPS",
+        "GPU",
+        "PSU"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Albert is a passenger on a trip and wants to use his smartphone to access the internet. Which wireless network type will he use?",
+      "choices": [
+        "Cellular",
+        "NFC",
+        "Wi-Fi",
+        "Bluetooth"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which internet service type suffers from very high latency?",
+      "choices": [
+        "Satellite",
+        "Fiber optic",
+        "Cellular",
+        "Cable"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Betsy has a new printer, and she has connected it to her computer with a USB cable. The computer automatically detects the printer and installs a driver. What technology has enabled this?",
+      "choices": [
+        "Plug and play",
+        "IP-based configuration",
+        "Web-based setup",
+        "UEFI setup"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Felicia plans to host an app on a secure online server accessed via a web browser. What type of service is she selling?",
+      "choices": [
+        "IaaS",
+        "SaaS",
+        "PaaS",
+        "Hybrid cloud"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Darin purchased a smart refrigerator with a touchscreen. What type of operating system does it have?",
+      "choices": [
+        "Server",
+        "Workstation",
+        "Embedded",
+        "Mobile"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Which operating system is open source?",
+      "choices": [
+        "Windows",
+        "Linux",
+        "IOS",
+        "macOS"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Which of these is NOT a function of an operating system?",
+      "choices": [
+        "Providing a user interface",
+        "Running applications",
+        "Connecting to the internet",
+        "Managing storage"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Brenda needs to copy a file from her Windows PC to a USB drive. Which utility should she use?",
+      "choices": [
+        "Disk Management",
+        "Files",
+        "Finder",
+        "File Explorer"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "All employees need to work together, share information, and create a final product. What sort of software should the project group use?",
+      "choices": [
+        "Specialized",
+        "Utility",
+        "Collaborative",
+        "Operating system"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Rae wants to summarize financial data and create some charts. Which application type is best?",
+      "choices": [
+        "Presentation",
+        "Visual diagramming",
+        "Spreadsheet",
+        "Word processing"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "When initially setting up an operating system, Jill will need to configure the computer name and what other setting?",
+      "choices": [
+        "Accessibility options",
+        "Backup",
+        "Guest account",
+        "Localization"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Judy gets pop-up ads and slowness on a trusted news site. What is the most likely problem?",
+      "choices": [
+        "The site is infected.",
+        "The site certificate expired.",
+        "The workstation is infected with malware.",
+        "The DNS cache is corrupted."
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Timothy wants to host an online meeting where participants see each other and talk in real time. What type of software does he need?",
+      "choices": [
+        "Conferencing",
+        "Instant messaging",
+        "Remote support",
+        "Online workspace"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Jamal wants a mobile app to preview furniture in a home. What technology should he use?",
+      "choices": [
+        "Virtual reality",
+        "Augmented reality",
+        "Cloud computing",
+        "Virtualization"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Tammy needs to save a video project into a file to post on the Internet. Which format should she use?",
+      "choices": [
+        ".jpg",
+        ".mp3",
+        ".mp4",
+        ".zip"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "What programming code type is used for a value that is initialized and never changes?",
+      "choices": [
+        "Method",
+        "Variable",
+        "Constant",
+        "Function"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Glen wants to distribute a program as an executable file. Which type of language should he use?",
+      "choices": [
+        "Query",
+        "Interpreted",
+        "Compiled",
+        "Scripting"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "What programming tool uses plain language to outline program steps without specific language syntax?",
+      "choices": [
+        "Flowchart",
+        "Pseudocode",
+        "Algorithm",
+        "Debugger"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "In a flowchart, what is the standard use for a diamond shape?",
+      "choices": [
+        "A decision point",
+        "Data input or output",
+        "A start or end point",
+        "A process or action"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Chris is writing a reservation program. What variable type holds the number of guests?",
+      "choices": [
+        "Integer",
+        "Float",
+        "Boolean",
+        "String"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Louise wants to input only whole-letter grades (A through F). What data type is best?",
+      "choices": [
+        "String",
+        "Char",
+        "Float",
+        "Boolean"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "\"While the time is earlier than 8 p.m., monitor network.\" This demonstrates what?",
+      "choices": [
+        "Branching",
+        "For loop",
+        "While loop",
+        "Function"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Which computer programming concept best allows code reuse?",
+      "choices": [
+        "Object",
+        "Function",
+        "Variable",
+        "Loop"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Which of the following are interpreted computer programming languages?",
+      "choices": [
+        "Python",
+        "Java",
+        "Assembly",
+        "C"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Wayne is creating a website basic structure. What type of language will he use?",
+      "choices": [
+        "Assembly",
+        "Compiled",
+        "Scripting",
+        "Markup"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Which type of database is optimized for complex queries and transaction processing, and is very fast when working with a well-defined schema?",
+      "choices": [
+        "Relational",
+        "Semi-structured",
+        "Non-relational",
+        "Key-value"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "In a relational database, each table has a __ that serves as the 'one' side in a one-to-many relationship.",
+      "choices": [
+        "Secondary key",
+        "Primary key",
+        "Foreign key",
+        "Key-value"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Which type of database can handle the widest variety of data types?",
+      "choices": [
+        "Structured",
+        "Relational",
+        "Flat file",
+        "Nonstructured"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Why should a business back up data?",
+      "choices": [
+        "To ensure data stability",
+        "To ensure data security",
+        "To ensure data encryption",
+        "To ensure data availability"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Which of the following can help an organization better understand a large amount of its data?",
+      "choices": [
+        "Scalability",
+        "Data Analytics",
+        "Data Monetization",
+        "Data Capture"
+      ],
+      "correct": 1
+    },
+    {
+      "q": "ACME needs a database for documents, pictures, videos, and tables. What structure works best?",
+      "choices": [
+        "Nonstructured",
+        "Relational",
+        "Structured",
+        "Flat file"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "What is a disadvantage of using the cloud for data storage?",
+      "choices": [
+        "Cloud storage allows you to save files to the internet.",
+        "Cloud storage backups require a reliable internet connection.",
+        "Cloud storage can fulfill the requirements for offsite backups.",
+        "You can access files from any computer with an internet connection."
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Which of these is a security practice supporting the 'C' (Confidentiality) of the CIA Triad?",
+      "choices": [
+        "Encryption",
+        "Data validation",
+        "Nonrepudiation",
+        "Redundancy"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Which of these is the best definition of social engineering?",
+      "choices": [
+        "Stealing passwords from a database.",
+        "Eavesdropping on connections.",
+        "Attempting to convince a person to take actions that benefit an attacker.",
+        "Stealing credit card info."
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Thieves broke into the Bayland Widgets corporate office and stole laptops. The IT manager isn't worried because she implemented which policy?",
+      "choices": [
+        "Disabling Bluetooth adapters",
+        "Requiring screensaver passwords",
+        "Requiring multifactor authentication",
+        "Requiring full disk encryption"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Ariel receives an e-mail from an illegitimate source asking for her username and password. What kind of security threat just happened?",
+      "choices": [
+        "Cracking",
+        "Hacking",
+        "Phishing",
+        "Spam"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Which of these is the best example of multi-factor authentication (MFA)?",
+      "choices": [
+        "Username and password",
+        "Biometric authentication",
+        "A password and an authenticator app",
+        "A username and a PIN"
+      ],
+      "correct": 2
+    },
+    {
+      "q": "Which policy best reflects the principle of least privilege?",
+      "choices": [
+        "Some users have no privileges.",
+        "Users have the privileges they need and no others.",
+        "All users have the same privileges.",
+        "Each user has the most privileges they can legally have."
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Which type of malware demands payment to unlock a user's system?",
+      "choices": [
+        "Ransomware",
+        "Redirects",
+        "Masquerading",
+        "Spyware"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "What is the purpose of a digital certificate for a website?",
+      "choices": [
+        "Ensures valid encryption.",
+        "Verifies transmission is from an authentic website and not a fake.",
+        "Assures the site has no malware.",
+        "Assures the site is all-ages."
+      ],
+      "correct": 1
+    },
+    {
+      "q": "Marcus stressed the need to verify the backup. Why is this step important?",
+      "choices": [
+        "Verifying saves the backup to the cloud.",
+        "Verifying produces the backup log files.",
+        "Verifying speeds up the backup process.",
+        "Verifying ensures good data in the backup."
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Cloud-based backups provide which of the following safety features?",
+      "choices": [
+        "Full backup of PC data",
+        "Automatic updates",
+        "Remote access to files",
+        "Data recovery in case of loss"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Maurice sells an app as a one-time purchase. How can he ensure each copy is separately paid for?",
+      "choices": [
+        "Require a product key for activation.",
+        "Send unique download packages.",
+        "Release as source code.",
+        "Release in public domain."
+      ],
+      "correct": 0
+    },
+    {
+      "q": "Donna wants to prevent her laptop from being stolen at her desk. What can she use?",
+      "choices": [
+        "USB locking plate.",
+        "BitLocker.",
+        "USB port blocker.",
+        "Cable lock."
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Cindy needs to describe ransomware to her boss. What explanation should she use?",
+      "choices": [
+        "Ransomware demands payment to unlock a user's system.",
+        "Ransomware redirects web browsers to predetermined sites.",
+        "Ransomware masquerades as a benign application.",
+        "Ransomware attacks a system and sends PII to the source."
+      ],
+      "correct": 0
+    },
+    {
+      "q": "A regulation requires new applicants to provide a scan of their retinas in case of any future legal questions regarding who applied for the position. Which of the following concepts is this an example of?",
+      "choices": [
+        "Non-repudiation.",
+        "Accounting.",
+        "Integrity.",
+        "Authentication."
+      ],
+      "correct": 0
+    },
+    {
+      "q": "In a large corporate environment, an employee named Kevin needs access to multiple internal systems, such as the company's email server, internal document management system, and customer relationship management tool. He only has to enter his username and password once to gain access to all these services. What term best describes this functionality?",
+      "choices": [
+        "Authorization",
+        "Authentication",
+        "Non-repudiation",
+        "Single sign-on"
+      ],
+      "correct": 3
+    },
+    {
+      "q": "Which of the following logic components is being used? IF amount < 5,000 THEN interest = 7%, ELSE interest = 8%.",
+      "choices": [
+        "Branching",
+        "Query",
+        "Constant",
+        "Looping"
+      ],
+      "correct": 0
+    },
+    {
+      "q": "A program checks if a website visitor qualifies for a special discount based on their membership status. What will be displayed by the following pseudocode if the value of isMember is false? declare isMember = false if isMember is equal to true display \"Discount Applied!\" else display \"No Discount.\" end",
+      "choices": [
+        "Discount Applied!",
+        "No Discount.",
+        "Syntax error",
+        "Nothing"
+      ],
+      "correct": 1
+    }
+  ]
+}
